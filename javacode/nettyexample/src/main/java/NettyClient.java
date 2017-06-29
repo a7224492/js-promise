@@ -19,9 +19,7 @@ import java.util.logging.Level;
  * Created by jz on 2017/6/27.
  */
 public class NettyClient {
-    private static final Logger logger = LoggerFactory.getLogger(NettyClient.class);
     public static void main(String[] args) {
-        logger.debug("HelloWorld!");
         EventLoopGroup group = new NioEventLoopGroup();
 
         Bootstrap b = new Bootstrap();
@@ -36,7 +34,6 @@ public class NettyClient {
 }
 
 class ClientHandlerInitializer extends ChannelInitializer<SocketChannel> {
-
     @Override
     protected void initChannel(SocketChannel ch) throws Exception {
         ch.pipeline().addFirst(new LoggingHandler(LogLevel.DEBUG));
@@ -52,7 +49,6 @@ class ClientHandler extends SimpleChannelInboundHandler<String> {
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
         ctx.channel().writeAndFlush("HelloWorld");
-        logger.debug("Connection active...");
     }
 
     @Override

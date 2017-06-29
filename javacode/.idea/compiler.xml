@@ -6,13 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="javacode" />
         <module name="nettyexample" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="javacode" target="1.5" />
       <module name="nettyexample" target="1.5" />
+      <module name="test" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
