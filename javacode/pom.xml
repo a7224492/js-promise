@@ -11,6 +11,7 @@
 
     <modules>
         <module>nettyexample</module>
+        <module>algorithm</module>
     </modules>
 
     <dependencies>
