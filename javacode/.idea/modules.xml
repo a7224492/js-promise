@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/algorithm/algorithm.iml" filepath="$PROJECT_DIR$/algorithm/algorithm.iml" />
       <module fileurl="file://$PROJECT_DIR$/javacode.iml" filepath="$PROJECT_DIR$/javacode.iml" />
       <module fileurl="file://$PROJECT_DIR$/nettyexample/nettyexample.iml" filepath="$PROJECT_DIR$/nettyexample/nettyexample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/turntableactivity/turntableactivity.iml" filepath="$PROJECT_DIR$/turntableactivity/turntableactivity.iml" />
     </modules>
   </component>
 </project>

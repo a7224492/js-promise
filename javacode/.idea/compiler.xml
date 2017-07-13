@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="algorithm" />
         <module name="nettyexample" />
+        <module name="turntableactivity" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -15,6 +16,7 @@
       <module name="javacode" target="1.5" />
       <module name="nettyexample" target="1.5" />
       <module name="test" target="1.5" />
+      <module name="turntableactivity" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
