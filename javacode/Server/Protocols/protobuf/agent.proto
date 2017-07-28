@@ -1,0 +1,167 @@
+package com.kodgames.message.proto.agent;
+option java_outer_classname = "AgentProtoBuf";
+
+/*-----------------游戏内AGT相关协议 ， T代表Agent------------*/
+//Client与Agent通信协议
+message CTAgtSelfStatusREQ						//Client向Agent请求自己代理商状态
+{
+}
+
+message TCAgtSelfStatusRES						//Agent向Client回复代理商状态
+{
+	required int32 result = 1;                  //返回结果，不是代理商|是代理商但是未验证|是代理商已经验证
+}
+
+message CTSendPhoneCodeREQ						//Client向Agent请求验证码
+{
+	required string mobilePhone = 1;            //要绑定的手机号
+}
+
+message CTSendPhoneCodeRES
+{
+	required int32 result = 1;                  //返回结果
+	optional int32 validTime = 2;               //验证码有效时间
+}
+
+message CTVerifyPhoneCodeREQ					//Client向Agent请求验证码有效性判断
+{
+	required int32 roleId = 1;                  //用户ID
+	required string mobilePhone = 2;            //要绑定的手机号
+	required string validCode = 3;              //验证码
+}
+
+message CTVerifyPhoneCodeRES
+{
+
+	//返回结果分成两类：
+	//与用户和手机有关：该手机号已被注册，手机号不存在（前两个请求GMT判断）， 用户ID已绑定手机号，用户ID不存在
+	//与验证码有关：验证码无效，验证码已发送，验证码超时，验证码确认成功
+	required int32 result = 1;                  //返回结果(验证码无效，验证码超时，验证成功)
+
+	//如果验证码确认成功，token作为支付时交易凭证,其他返回该项为空
+	required string token = 2;            	    //对返回结果的附加信息,随机十六位,暂时不用，可为固定值
+}
+
+message CTBelongClubREQ							//Client向Agent查询自己所属俱乐部
+{
+   	required int32 roleId = 1;                  //用户ID
+}
+
+message TCBelongClubRES							//Agent向Client回复自己所属俱乐部
+{
+   	required int32 result = 1;                  //返回结果
+   	repeated int32 roleIdBelongClub = 2;        //用户ID所属俱乐部,可能从属于多个俱乐部
+}
+
+message CTAgtNoticeREQ							//Client向Agent请求AGT公告
+{
+   	required int32 version = 1;         		//请求AGT公告版本号
+}
+
+message TCAgtNoticeRES							//Agent向Client回复AGT公告
+{
+	required int32 result = 1;                  //返回结果
+  	required int32 version = 2;         		//回应AGT公告版本号
+   	repeated string notice = 3;         		//回应AGT公告内容
+}
+
+message CTBuyDiamondREQ							//Client向Agent购买钻石
+{
+   	required int32 roleId = 1;                  //用户ID
+   	required string token = 2;                  //用户token
+   	required int32 diamondCount = 3;            //购买钻石数量，应该有最大值限制
+}
+
+message TCBuyDiamondRES							//Agent向Client回复购买钻石
+{
+	required int32 result = 1;                  //返回结果
+   	required int32 diamondCount = 2;            //购买完后拥有钻石数量
+}
+
+message CTHaveDiamondREQ					   //Client向Agent查询代理商钻石数量
+{
+}
+
+message TCHaveDiamondRES					   //Agent向Client回复代理商钻石数量
+{
+	required int32 result = 1;                 //返回结果
+   	required int32 diamondHave = 2;            //拥有钻石数量
+}
+
+message CTGiveDiamondREQ					   //Client向Agent请求赠送他人钻石
+{
+   	required int32 roleIdSend = 1;             //发出钻石用户ID
+   	required string token = 2; 				   //发出钻石用户TOKEN
+   	required int32 roleIdRecv = 3;             //接受钻石用户ID
+   	required int32 roleIdBelongClud = 4;       //用户ID所属俱乐部，如果此项为空，就是赠送其他用户房卡
+   	required int32 diamondGive = 5;            //赠送钻石数目
+   	required int32 ok = 6;         			   //ok=0是首次请求赠送，ok=1是确认赠送请求
+}
+
+message TCGiveDiamondRES				       //Agent向Client回复赠送他人钻石
+{
+	required int32 result = 1;                 //返回结果，首次请求|确认请求|赠送失败
+   	required int32 roleIdSend = 2;             //发出钻石用户ID
+   	required int32 roleIdRecv = 3;             //接受钻石用户ID
+   	required int32 roleIdRecvName = 4;         //接受钻石用户姓名
+   	required int32 roleIdBelongClud = 5;       //用户ID所属俱乐部
+   	required int32 diamondGive = 6;            //赠送钻石数目
+}
+
+message CTDiamondJournalREQ					   //Client向Agent请求钻石记录
+{
+   	required int32 operation = 1;              //钻石操作类型,购买（1），赠与（2）
+}
+
+message TCDiamondJournalRES					   //Agent向Client回复钻石记录
+{
+	required int32 result = 1;                 //返回结果
+	repeated string journal = 2;   			   //钻石记录
+}
+
+//客户端点击更多，加一个协议，数据从AG拉取
+
+
+
+//Agent与Game通信协议
+//message TGUserExistREQ							//Agent向Game请求用户ID是否存在
+//{
+//	required int32 roleId = 1;          	    //用户ID
+//}
+//
+//message GTUserExistRES							//Game向Agent返回用户ID是否存在
+//{
+//	required int32 result = 1;          	    //判断结果
+//}
+
+message TGHaveDiamondREQ						//Agent向Game请求用户代理商ID及手机号
+{
+	required int32 roleId = 1;          	    //用户ID
+    required int32 clientConnectionId = 2;  	// 客户端连接ID
+}
+
+message GTHaveDiamondRES						//Agent向Game回复用户代理商ID及手机号
+{
+	required int32 result = 1;					//返回结果
+	required int32 agentId = 2;					//代理商ID
+	required string phoneNum = 3;				//手机号
+    required int32 clientConnectionId = 4;  	// 客户端连接ID
+}
+
+message TGDiamondJournalREQ					    //Agent向Game请求钻石记录
+{
+   	required int32 roleId = 1;          	    //用户ID
+   	required int32 operation = 2;   		    //钻石操作类型,购买|赠与
+   	required int32 clientConnectionId = 3;  	//客户端连接ID
+
+}
+
+message GTDiamondJournalRES					    //Game向Agent回复赠送他人钻石
+{
+	required int32 result = 1;                  //返回结果
+	required int32 agentId = 2;				    //代理商ID
+	required string phoneNum = 3;				//手机号
+	required int32 operation = 4;   		    //钻石操作类型,购买|赠与
+    required int32 clientConnectionId = 5;  	// 客户端连接ID
+
+}

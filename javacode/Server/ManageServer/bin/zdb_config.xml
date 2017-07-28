@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceConf name="manager">
+    <!-- ThreadPoolSize nioCpus="1" netProcessors="4" protocolSchedulers="4" applicationExecutors="16"-->
+    <!--<Trace console="true" level="WARN" outDir="./trace"-->
+    <!--rotateHourOfDay="6" rotateMinute="0"/>-->
+
+    <!-- dbhome="zdb" -->
+    <!-- checkpointPeriod="60000" -->
+    <Zdb
+		 autoKeyInitValue="0" autoKeyStep="4096"
+         checkpointPeriod="60000" corePoolSize="30"
+         deadlockDetectPeriod="1000"
+         defaultTableCache="limax.zdb.TTableCacheLRU"
+         edbCacheSize="65536" edbLoggerPages="16384" jdbcPoolSize="5"
+         marshalN="1" marshalPeriod="-1" procPoolSize="10"
+         schedPoolSize="5" snapshotFatalTime="200" zdbVerify="true">
+        <Procedure maxExecutionTime="0" retryDelay="100" retryTimes="3" trace="WARN"/>
+    </Zdb>
+</ServiceConf>

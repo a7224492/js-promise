@@ -1,0 +1,26 @@
+本地服务器配置
+使用键值对存储
+必须存储的信息
+区域信息  服务器类型 还有manager信息
+area=1
+type=1
+manager_host=0.0.0.0
+manager_port=13000
+
+可以使用core中的
+com.kodgames.corgi.core.util.config_utils.ServerParser
+进行读取
+可以get到一个Map<String, String>
+
+"#"为注释
+"#"可以注释掉后面一行
+
+sample:
+=============sample开始==========
+#area id
+area_id=1
+#type是服务器类型
+type=1
+#manager--连接manager使用的信息
+manager_host=127.0.0.1
+manager_port=13000

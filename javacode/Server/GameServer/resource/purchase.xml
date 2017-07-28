@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Purchase>
+    <PurchaseItem goodId="good1" roomCardCount = "1"/>
+    <PurchaseItem goodId="good2" roomCardCount = "2"/>
+    <PurchaseItem goodId="good3" roomCardCount = "3"/>
+</Purchase>

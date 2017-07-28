@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ActivityServer/ActivityServer.iml" filepath="$PROJECT_DIR$/ActivityServer/ActivityServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AuthServer/AuthServer.iml" filepath="$PROJECT_DIR$/AuthServer/AuthServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BIConfigGenerate/BIConfigGenerate.iml" filepath="$PROJECT_DIR$/BIConfigGenerate/BIConfigGenerate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BattleServer/BattleServer.iml" filepath="$PROJECT_DIR$/BattleServer/BattleServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ClubServer/ClubServer.iml" filepath="$PROJECT_DIR$/ClubServer/ClubServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CorgiServerCore/CorgiServerCore.iml" filepath="$PROJECT_DIR$/CorgiServerCore/CorgiServerCore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GameServer/GameServer.iml" filepath="$PROJECT_DIR$/GameServer/GameServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InterfaceServer/InterfaceServer.iml" filepath="$PROJECT_DIR$/InterfaceServer/InterfaceServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ManageServer/ManageServer.iml" filepath="$PROJECT_DIR$/ManageServer/ManageServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Message/Message.iml" filepath="$PROJECT_DIR$/Message/Message.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ReplayServer/ReplayServer.iml" filepath="$PROJECT_DIR$/ReplayServer/ReplayServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestClient/TestClient.iml" filepath="$PROJECT_DIR$/TestClient/TestClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config/config.iml" filepath="$PROJECT_DIR$/config/config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xml/xml.iml" filepath="$PROJECT_DIR$/xml/xml.iml" />
+    </modules>
+  </component>
+</project>

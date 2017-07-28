@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zdb>
+    <cbean name="ActivityRewardKey">
+        <variable name="activityId" type="int"/>
+        <variable name="rewardId" type="int"/>
+        <variable name="rewardDate" type="long"/>
+    </cbean>
+    <cbean name="AddPlayersCardDetailKey">
+        <variable name="id" type="int"/>
+        <variable name="roleId" type="int"/>
+    </cbean>
+    <cbean name="GlobalRoomId">
+        <variable name="createTime" type="long"/>
+        <variable name="roomId" type="int"/>
+    </cbean>
+    <cbean name="LastRewardKey">
+        <variable name="roleId" type="int"/>
+        <variable name="rewardTime" type="long"/>
+    </cbean>
+    <cbean name="RoleClubId">
+        <variable name="clubId" type="int"/>
+        <variable name="roleId" type="int"/>
+    </cbean>
+    <xbean name="ActivityHistoryRank">
+        <variable key="long" name="ranks" type="map" value="HistoryRank"/>
+    </xbean>
+    <xbean name="ActivityRank">
+        <variable key="long" name="dateRank" type="map" value="DateActivityRank"/>
+    </xbean>
+    <xbean name="AddAllCardRecord">
+        <variable name="gmAdmin" type="string"/>
+        <variable name="count" type="int"/>
+        <variable name="time" type="long"/>
+    </xbean>
+    <xbean name="AddCard">
+        <variable name="agencyId" type="int"/>
+        <variable name="count" type="int"/>
+        <variable name="time" type="long"/>
+    </xbean>
+    <xbean name="AddPlayersCardDetail">
+        <variable name="cardNum" type="int"/>
+        <variable name="status" type="int"/>
+        <variable name="creaetTime" type="long"/>
+    </xbean>
+    <xbean name="AddPlayersCardRecord">
+        <variable name="createTime" type="long"/>
+        <variable name="gmtUsername" type="string"/>
+        <variable name="planCardNum" type="int"/>
+        <variable name="realCardNum" type="int"/>
+        <variable name="playerNum" type="int"/>
+        <variable name="successNum" type="int"/>
+        <variable name="failNum" type="int"/>
+    </xbean>
+    <xbean name="AgentSatusBean">
+        <variable name="agentId" type="int"/>
+        <variable name="phoneNumber" type="string"/>
+        <variable name="bindStatus" type="string"/>
+    </xbean>
+    <xbean name="AuthentictionInfo">
+        <variable name="realname" type="string"/>
+        <variable name="idnumber" type="string"/>
+    </xbean>
+    <xbean name="ButtonBean">
+        <variable name="status" type="int"/>
+    </xbean>
+    <xbean name="ButtonTableMap">
+        <variable key="int" name="buttonMap" type="map" value="ButtonBean"/>
+    </xbean>
+    <xbean name="ClubRoomHistory">
+        <variable name="rooms" type="vector" value="GlobalRoomId"/>
+    </xbean>
+    <xbean name="CombatInfo">
+        <variable name="time" type="long"/>
+        <variable name="count" type="int"/>
+    </xbean>
+    <xbean name="DateActivityRank">
+        <variable name="roleRanks" type="vector" value="RoleRank"/>
+    </xbean>
+    <xbean name="DiamondMobileBindBean">
+        <variable name="diamond" type="int"/>
+    </xbean>
+    <xbean name="ForbidRole">
+        <variable name="accountId" type="int"/>
+        <variable name="channel" type="string"/>
+        <variable name="username" type="string"/>
+        <variable name="forbidTime" type="long"/>
+    </xbean>
+    <xbean name="GameActivityReward">
+        <variable name="rewardName" type="string"/>
+        <variable name="rewardDesc" type="string"/>
+        <variable name="rewardCount" type="int"/>
+        <variable name="rewardLeftCount" type="int"/>
+        <variable name="rewardRatio" type="int"/>
+        <variable name="condition" type="string"/>
+        <variable name="isBroadcard" type="boolean"/>
+        <variable name="isReward" type="boolean"/>
+        <variable name="isCardReward" type="boolean"/>
+    </xbean>
+    <xbean name="HistoryRank">
+        <variable name="score" type="int"/>
+    </xbean>
+    <xbean name="IdMobileBean">
+        <variable name="accountId" type="int"/>
+        <variable name="accountMobile" type="string"/>
+        <variable name="bindTime" type="long"/>
+        <variable name="bindAward" type="int"/>
+    </xbean>
+    <xbean name="InviteeInfo">
+        <variable name="roundCount" type="int"/>
+        <variable name="finished" type="int"/>
+        <variable name="finishTime" type="long"/>
+        <variable name="joinTime" type="long"/>
+        <variable name="promoterUnionId" type="string"/>
+    </xbean>
+    <xbean name="LastRewardInfo">
+        <variable name="rewardId" type="int"/>
+        <variable name="rewardDesc" type="string"/>
+    </xbean>
+    <xbean name="LimitContact">
+        <variable name="id" type="int"/>
+        <variable name="agencyId" type="int"/>
+        <variable name="content" type="string"/>
+        <variable name="startTime" type="long"/>
+        <variable name="endTime" type="long"/>
+        <variable name="sender" type="string"/>
+    </xbean>
+    <xbean name="LimitedCostlessActivity">
+        <variable name="startTime" type="long"/>
+        <variable name="endTime" type="long"/>
+        <variable name="activityName" type="string"/>
+        <variable name="roomType" type="int"/>
+        <variable name="isCancel" type="boolean"/>
+        <variable name="opType" type="int"/>
+    </xbean>
+    <xbean name="LongValue">
+        <variable name="val" type="long"/>
+    </xbean>
+    <xbean name="Mail">
+        <variable name="id" type="long"/>
+        <variable name="type" type="int"/>
+        <variable name="msg" type="string"/>
+        <variable name="time" type="long"/>
+        <variable name="sender" type="int"/>
+    </xbean>
+    <xbean name="MainNotice">
+        <variable name="type" type="string"/>
+        <variable name="id" type="long"/>
+        <variable name="title" type="string"/>
+        <variable name="content" type="string"/>
+        <variable name="startTime" type="long"/>
+        <variable name="endTime" type="long"/>
+        <variable name="isCancel" type="boolean"/>
+    </xbean>
+    <xbean name="Marquee">
+        <variable name="id" type="long"/>
+        <variable name="type" type="int"/>
+        <variable name="showType" type="int"/>
+        <variable name="msg" type="string"/>
+        <variable name="weeklyRepeat" type="int"/>
+        <variable name="absoluteDate" type="long"/>
+        <variable name="hourAndMinute" type="vector" value="long"/>
+        <variable name="rollTimes" type="int"/>
+        <variable name="intervalTime" type="int"/>
+        <variable name="color" type="string"/>
+        <variable name="active" type="boolean"/>
+        <variable name="operateBy" type="int"/>
+    </xbean>
+    <xbean name="MobileIdBean">
+        <variable name="accountId" type="int"/>
+        <variable name="bindTime" type="long"/>
+        <variable name="status" type="string"/>
+        <variable name="code" type="string"/>
+        <variable name="codeTime" type="long"/>
+    </xbean>
+    <xbean name="NormalContact">
+        <variable name="id" type="int"/>
+        <variable name="agencyId" type="int"/>
+        <variable name="content" type="string"/>
+        <variable name="sender" type="string"/>
+    </xbean>
+    <xbean name="Notice">
+        <variable name="id" type="long"/>
+        <variable name="content" type="string"/>
+        <variable name="imgUrl" type="string"/>
+        <variable name="startTime" type="long"/>
+        <variable name="endTime" type="long"/>
+        <variable name="isCancel" type="boolean"/>
+        <variable name="noticeName" type="string"/>
+        <variable name="popTimes" type="int"/>
+    </xbean>
+    <xbean name="PersistGlobalInfo">
+        <variable name="allowLoginChannelKeySeed" type="int"/>
+        <variable key="int" name="allowLoginChannel" type="map" value="string"/>
+        <variable key="int" name="forbidPlayers" type="map" value="ForbidRole"/>
+    </xbean>
+    <xbean name="PlayerAddCard">
+        <variable name="records" type="vector" value="AddCard"/>
+    </xbean>
+    <xbean name="PlayerSubCard">
+        <variable name="records" type="vector" value="SubCard"/>
+    </xbean>
+    <xbean name="PopUpMessageInfo">
+        <variable name="version" type="long"/>
+        <variable name="create" type="long"/>
+        <variable name="update" type="long"/>
+        <variable name="pop" type="int"/>
+        <variable name="mode" type="int"/>
+        <variable name="times" type="vector" value="PopUpMessageTimes"/>
+        <variable name="types" type="vector" value="PopUpMessageTypes"/>
+    </xbean>
+    <xbean name="PopUpMessageTimes">
+        <variable name="start" type="string"/>
+        <variable name="end" type="string"/>
+    </xbean>
+    <xbean name="PopUpMessageTypes">
+        <variable name="tab" type="int"/>
+        <variable name="style" type="int"/>
+        <variable name="content" type="vector" value="string"/>
+    </xbean>
+    <xbean name="PromoterInfo">
+        <variable name="inviteeUnionidList" type="vector" value="string"/>
+        <variable name="totalEffectiveInvitee" type="int" value="int"/>
+        <variable name="unreceivedRewards" type="float"/>
+        <variable name="totalRewards" type="float"/>
+        <variable name="inviteeCountThisCycle" type="int"/>
+        <variable name="rewardsThisCycle" type="float"/>
+        <variable name="cycleStartTime" type="long"/>
+        <variable name="receivedCountToday" type="int"/>
+        <variable name="receivedRewardsToday" type="float"/>
+        <variable name="receivedTimeToday" type="long"/>
+        <variable name="rewardList" type="vector" value="long"/>
+    </xbean>
+    <xbean name="Purchase_order_item">
+        <variable name="orderId" type="string"/>
+        <variable name="channelOrderId" type="string"/>
+        <variable name="playerId" type="int"/>
+        <variable name="channelId" type="string"/>
+        <variable name="channelUid" type="string"/>
+        <variable name="areaId" type="int"/>
+        <variable name="deviceType" type="string"/>
+        <variable name="rmb" type="int"/>
+        <variable name="itemId" type="string"/>
+        <variable name="status" type="int"/>
+        <variable name="sign" type="string"/>
+        <variable name="createTime" type="long"/>
+    </xbean>
+    <xbean name="RankActivityVersion">
+        <variable name="version" type="int"/>
+    </xbean>
+    <xbean name="ReceiveRewardInfo">
+        <variable name="id" type="long"/>
+        <variable name="date" type="long"/>
+        <variable name="receivedThisTime" type="float"/>
+        <variable name="receivedTotal" type="float"/>
+        <variable name="isHandled" type="int"/>
+        <variable name="handleTime" type="long"/>
+        <variable name="gmName" type="string"/>
+    </xbean>
+    <xbean name="RoleHistoryRank">
+        <variable key="int" name="ranks" type="map" value="ActivityHistoryRank"/>
+    </xbean>
+    <xbean name="RoleInfo">
+        <variable name="accountId" type="int"/>
+        <variable name="channel" type="string"/>
+        <variable name="username" type="string"/>
+        <variable name="nickname" type="string"/>
+        <variable name="headImgUrl" type="string"/>
+        <variable name="sex" type="int"/>
+        <variable name="points" type="int"/>
+        <variable name="cardCount" type="int"/>
+        <variable name="totalCostCardCount" type="int"/>
+        <variable name="totalGameCount" type="int"/>
+        <variable name="roleCreateTime" type="long"/>
+        <variable name="lastLoginTime" type="long"/>
+        <variable name="historyRooms" type="vector" value="GlobalRoomId"/>
+        <variable name="mergeList" type="vector" value="int"/>
+        <variable name="unionid" type="string"/>
+    </xbean>
+    <xbean name="RoleMemInfo">
+        <variable name="battleServerId" type="int"/>
+        <variable name="roomId" type="int"/>
+        <variable name="connectionId" type="int"/>
+        <variable name="onlineTimeInDay" type="long"/>
+        <variable name="addictionAlertTimesInDay" type="int"/>
+        <variable name="lastAddictionAlertTime" type="long"/>
+        <variable name="lastLogoutTime" type="long"/>
+        <variable name="serverStartupTime" type="long"/>
+    </xbean>
+    <xbean name="RoleRank">
+        <variable name="roleId" type="int"/>
+        <variable name="nickname" type="string"/>
+        <variable name="score" type="int"/>
+    </xbean>
+    <xbean name="RoleRecord">
+        <variable name="role_id" type="int"/>
+        <variable name="combatTimes" type="vector" value="CombatInfo"/>
+        <variable name="agencyId" type="int"/>
+        <variable name="combatTotal" type="int"/>
+    </xbean>
+    <xbean name="RoomInfo">
+        <variable name="battleId" type="int"/>
+        <variable name="status" type="int"/>
+        <variable name="roundCount" type="int"/>
+        <variable name="isLca" type="boolean"/>
+        <variable name="clubId" type="int"/>
+        <variable name="payType" type="int"/>
+        <variable name="cost" type="int"/>
+    </xbean>
+    <xbean name="SubCard">
+        <variable name="gmAdmin" type="string"/>
+        <variable name="count" type="int"/>
+        <variable name="reason" type="string"/>
+        <variable name="time" type="long"/>
+    </xbean>
+    <xbean name="TurntableActivityReward">
+        <variable name="roleId" type="int"/>
+        <variable name="itemCount" type="int"/>
+        <variable name="consumeNum" type="int"/>
+        <variable name="consumeAddNumTime" type="long"/>
+        <variable name="shareTime" type="long"/>
+        <variable name="rewards" type="vector" value="TurntableActivityRewardRecord"/>
+    </xbean>
+    <xbean name="TurntableActivityRewardRecord">
+        <variable name="rewardId" type="int"/>
+        <variable name="rewardName" type="string"/>
+        <variable name="rewardDesc" type="string"/>
+        <variable name="rewardTime" type="long"/>
+        <variable name="rewardCount" type="int"/>
+    </xbean>
+    <xbean name="TurntableActivityVersion">
+        <variable name="version" type="int"/>
+    </xbean>
+    <xbean name="TurntableRewardDispatch">
+        <variable name="bean" type="vector" value="TurntableRewardDispatchBean"/>
+    </xbean>
+    <xbean name="TurntableRewardDispatchBean">
+        <variable name="rewardId" type="int"/>
+        <variable name="rewardName" type="string"/>
+        <variable name="rewardDesc" type="string"/>
+        <variable name="rewardTime" type="long"/>
+        <variable name="rewardCount" type="int"/>
+        <variable name="isCard" type="boolean"/>
+        <variable name="isDispatch" type="boolean"/>
+    </xbean>
+    <xbean name="UserMail">
+        <variable name="personalMails" type="vector" value="long"/>
+        <variable name="allUserMails" type="vector" value="long"/>
+        <variable name="lastCheckTime" type="long"/>
+    </xbean>
+    <xbean name="_AutoKey_">
+        <variable name="name" type="string"/>
+        <variable name="initValue" type="int"/>
+        <variable name="step" type="int"/>
+        <variable name="current" type="long"/>
+    </xbean>
+    <xbean name="_AutoKeys_">
+        <variable name="autoKeys" type="list" value="_AutoKey_"/>
+    </xbean>
+    <table key="int" name="role_info" value="RoleInfo"/>
+    <table key="int" name="role_mem_info" value="RoleMemInfo"/>
+    <table key="int" name="room_info" value="RoomInfo"/>
+    <table autoIncrement="true" key="long" name="marquee_active" value="Marquee"/>
+    <table key="int" name="marquee_version" value="LongValue"/>
+    <table key="int" name="user_mails" value="UserMail"/>
+    <table autoIncrement="true" key="long" name="personal_mails" value="Mail"/>
+    <table key="long" name="public_mails" value="Mail"/>
+    <table key="RoleClubId" name="club_room_history" value="ClubRoomHistory"/>
+    <table autoIncrement="true" key="long" name="normal_contact_table" value="NormalContact"/>
+    <table autoIncrement="true" key="long" name="limit_contact_table" value="LimitContact"/>
+    <table key="int" name="add_card_table" value="PlayerAddCard"/>
+    <table key="int" name="sub_card_table" value="PlayerSubCard"/>
+    <table autoIncrement="true" key="long" name="notice_table" value="Notice"/>
+    <table key="int" name="notice_version" value="LongValue"/>
+    <table autoIncrement="true" key="long" name="add_all_card_record" value="AddAllCardRecord"/>
+    <table key="string" name="main_notice_table" value="MainNotice"/>
+    <table key="int" name="turntable_activity_version_table" value="TurntableActivityVersion"/>
+    <table key="ActivityRewardKey" name="game_activity_reward_table" value="GameActivityReward"/>
+    <table key="int" name="games_activity_turntable_reward" value="TurntableActivityReward"/>
+    <table key="int" name="turntable_reward_dispatch_table" value="TurntableRewardDispatch"/>
+    <table key="LastRewardKey" name="last_reward_info_table" value="LastRewardInfo"/>
+    <table key="int" name="button_table" value="ButtonTableMap"/>
+    <table autoIncrement="true" key="long"
+        name="limited_costless_activity" value="LimitedCostlessActivity"/>
+    <table key="int" name="add_players_card_record_table" value="AddPlayersCardRecord"/>
+    <table key="AddPlayersCardDetailKey"
+        name="add_players_card_detail_table" value="AddPlayersCardDetail"/>
+    <table key="int" name="persist_global" value="PersistGlobalInfo"/>
+    <table key="int" name="rank_activity_version_table" value="RankActivityVersion"/>
+    <table key="int" name="activity_rank" value="ActivityRank"/>
+    <table key="int" name="activity_history_rank" value="RoleHistoryRank"/>
+    <table key="string" name="purchase_order_table" value="Purchase_order_item"/>
+    <table key="int" name="role_records" value="RoleRecord"/>
+    <table key="int" name="string_tables" value="string"/>
+    <table key="string" name="mobile_id_table" value="MobileIdBean"/>
+    <table key="int" name="id_mobile_table" value="IdMobileBean"/>
+    <table key="string" name="diamond_mobilebind_table" value="DiamondMobileBindBean"/>
+    <table key="string" name="promoter_info" value="PromoterInfo"/>
+    <table autoIncrement="true" key="long" name="receive_reward_info" value="ReceiveRewardInfo"/>
+    <table key="string" name="invitee_info" value="InviteeInfo"/>
+    <table key="string" name="unionid_2_roleid" value="int"/>
+    <table key="int" name="pop_up_config" value="PopUpMessageInfo"/>
+    <table key="int" name="id_agent_table" value="AgentSatusBean"/>
+    <table key="int" name="authentiction_info" value="AuthentictionInfo"/>
+    <table key="string" name="_sys_" value="_AutoKeys_"/>
+</zdb>

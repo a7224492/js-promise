@@ -1,0 +1,47 @@
+package com.kodgames.message.proto.chat;
+option java_outer_classname = "ChatProtoBuf";
+
+message CBChatREQ					// Client 向 Battle 请求聊天
+{
+	required int32 type = 1;		// 1.常用语、2.表情、3.自定义内容
+	required string content = 2; 	// 聊天内容
+	optional int32 code = 3; 		// 聊天内容编号，用法依type而不同
+}
+
+message BCChatRES					// Battle 向 Client 应答聊天
+{
+	required int32 result = 1;		// 聊天结果
+}
+
+message BCChatSYN					// Battle 向 Client 同步聊天信息
+{
+	required int32 roleId = 1; 		// 说话人 
+	required int32 type = 2;		// 聊天类型
+	optional string content = 3;	// 聊天内容
+	optional int32 code = 4;		// 聊天内容编号，用法依type而不同
+}
+
+enum ChatType		// 聊天类型
+{
+	COMMON = 0x01;	// 常用语
+	FACE = 0x02;	// 表情
+	CUSTOM = 0x03;	// 自定义
+}
+
+message CBAnimationREQ				// Client 向 Battle 请求播放动画
+{
+	required int32 targetId = 1;	// 要给这个玩家播放动画
+	optional int32 code = 2; 		// 播放的动画
+}
+
+message BCAnimationRES				// Battle 向 Client 应答播放动画
+{
+	required int32 result = 1;		// 播放结果
+}
+
+message BCAnimationSYN				// Battle 向 Client 同步播放动画信息
+{
+	required int32 sourceId = 1; 	// 哪个玩家播放动画
+	required int32 targetId = 2;	// 动画发给哪个玩家
+	optional int32 code = 3;		// 播放的动画
+}

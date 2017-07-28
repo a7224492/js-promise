@@ -1,0 +1,38 @@
+package com.kodgames.message.proto.marquee;
+option java_outer_classname = "MarqueeProtoBuf";
+
+message MarqueePROTO					// 跑马灯信息
+{
+    required int64 id = 1;				// 跑马灯ID
+    required string msg = 2;			// 跑马灯内容
+    required int32 type = 3;			// 类型  2:绝对时间一次发送  3:按设定重复发送
+	
+    optional int32 weeklyRepeat = 4;	// 每周重复 一周从周日开始 后7位进行标识 0000000~1111111用于表示周几会显示
+										// 六 五 四 三 二 一 日
+										// 1  1  1  1  1  1  1
+	
+    optional int64 absoluteDate = 5;	// 绝对时间发送的日期 具体时间 毫秒值
+    repeated int64 hourAndMinute = 6;	// 具体的小时&分钟毫秒值只有重复发送的时候会用到
+    optional int32 rollTimes = 7;		// 滚动次数
+    optional int32 intervalTime = 8;	// 间隔时间秒
+    optional string color =9;			// 颜色
+    required int32 showType = 10;		// 可以显示的场景
+}
+
+message GCMarqueeVersionSYNC			// Game 向 Client 同步跑马灯版本
+{
+    required int64 version = 1;			// 版本同步 登陆&版本改变时发送
+    required int32 opType = 2;			// 操作类型
+    required MarqueePROTO marquee = 3;	// 跑马灯信息
+}
+
+message CGMarqueeREQ				// Client 向 Game 请求跑马灯列表
+{
+    optional int64 version = 1;		// 版本号 用于可能会有增量更新
+}
+
+message GCMarqueeRES					// Game 向 Client 应答跑马灯列表
+{
+    required int64 version = 1;			// 版本
+    repeated MarqueePROTO marquees = 2;	// 跑马灯列表
+}

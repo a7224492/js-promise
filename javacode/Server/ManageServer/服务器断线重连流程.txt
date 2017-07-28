@@ -1,0 +1,10 @@
+服务器断线重连流程
+服务器重新建立连接后
+判断是否能够直接提供服务
+能够直接提供服务则直接向manager发送带有服务器当前信息的Register
+如果不能够直接提供服务则向manager发送带有服务器当前信息的GetLaunchInfoREQ
+
+manager断线重连处理
+manager接收到带id的GetLaunchREQ后检测当前RUNNING的状态有没有这个id 
+有则直接返回错误码
+没有则添加到服务器列表中 状态设为Prepare并继续GetLaunch流程

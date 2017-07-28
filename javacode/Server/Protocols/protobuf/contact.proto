@@ -1,0 +1,13 @@
+package com.kodgames.message.proto.contact;
+option java_outer_classname = "ContactProtoBuf";
+
+message CGContactREQ				// 请求代理商信息
+{
+}
+
+message GCContactRES				// 应答代理商信息
+{
+	required int32 result = 1;		// 请求结果
+	optional string content = 2;	// 代理商信息
+	repeated string weiXins = 3;    // 客服微信号
+}

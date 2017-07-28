@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="file:///third_lib/jar/slf4j-api-1.7.12.jar" />
+    <libelement value="file:///third_lib/jar/protobuf-java-2.6.1.jar" />
+    <libelement value="file:///third_lib/jar/KodThreadPool.jar" />
+    <libelement value="file:///third_lib/jar/gmtools.jar" />
+    <libelement value="file:///third_lib/jar/KodTask.jar" />
+    <libelement value="file:///third_lib/jar/KodUdp.jar" />
+    <libelement value="file:///third_lib/jar/KodTimer.jar" />
+    <libelement value="file:///third_lib/jar/logback-core-1.1.3.jar" />
+    <libelement value="file:///third_lib/jar/logback-classic-1.1.3.jar" />
+    <libelement value="file:///third_lib/jar/KodEvent.jar" />
+    <libelement value="file:///third_lib/jar/kodbilog.jar" />
+    <libelement value="file:///third_lib/jar/zdb.jar" />
+    <libelement value="file:///third_lib/jar/mysql-connector-java-5.1.36-bin.jar" />
+    <libelement value="file:///third_lib/jar/JbcParser.jar" />
+    <libelement value="file:///third_lib/jar/json-lib-2.4.jar" />
+    <libelement value="file:///third_lib/jar/commons-lang.jar" />
+    <libelement value="file:///third_lib/jar/ezmorph-1.0.6.jar" />
+    <libelement value="file:///third_lib/jar/commons-logging-1.2.jar" />
+    <libelement value="file:///third_lib/jar/commons-collections-3.2.jar" />
+    <libelement value="file:///third_lib/jar/commons-beanutils-1.8.3.jar" />
+    <libelement value="file:///third_lib/jar/netty-all-4.0.33.Final.jar" />
+    <src_description expected_position="0">
+      <src_folder value="file://$MODULE_DIR$/src" expected_position="0" />
+      <src_folder value="file://$MODULE_DIR$/resource" expected_position="1" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/resource" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="module-library">
+      <library name="slf4j-api-1.7.12.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/slf4j-api-1.7.12.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="protobuf-java-2.6.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/protobuf-java-2.6.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="KodThreadPool.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/KodThreadPool.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gmtools.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/gmtools.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="KodTask.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/KodTask.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="KodUdp.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/KodUdp.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="KodTimer.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/KodTimer.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="logback-core-1.1.3.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/logback-core-1.1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="logback-classic-1.1.3.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/logback-classic-1.1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="KodEvent.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/KodEvent.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kodbilog.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/kodbilog.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="zdb.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/zdb.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="mysql-connector-java-5.1.36-bin.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/mysql-connector-java-5.1.36-bin.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="JbcParser.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/JbcParser.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="json-lib-2.4.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/json-lib-2.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-lang.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/commons-lang.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="ezmorph-1.0.6.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/ezmorph-1.0.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-logging-1.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/commons-logging-1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-collections-3.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/commons-collections-3.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-beanutils-1.8.3.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/commons-beanutils-1.8.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module" module-name="CorgiServerCore" />
+    <orderEntry type="module" module-name="GameServer" />
+    <orderEntry type="module-library">
+      <library name="netty-all-4.0.33.Final.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../third_lib/jar/netty-all-4.0.33.Final.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module" module-name="Message" />
+  </component>
+</module>

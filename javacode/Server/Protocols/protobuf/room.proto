@@ -1,0 +1,146 @@
+package com.kodgames.message.proto.room;
+option java_outer_classname = "RoomProtoBuf";
+
+message CBEnterRoomREQ					// Client 向 Battle 请求进入房间
+{
+	required int32 roleId = 1;			// 角色ID
+	required int32 roomId = 2;			// 房间ID
+	required string nickname = 3;		// 昵称
+	required string headImageUrl = 4;	// 头像URL
+	required int32 sex = 5;				// 性别
+}
+
+message BCEnterRoomRES							// Battle 向 Client 应答进入房间
+{
+	required int32 result = 1;					// 进入结果
+	required int32 roomType = 2; 				// 房间类型
+	repeated int32 gameplays = 3;				// 玩法规则
+	required int32 roundCount = 4;				// 房间圈/局规则
+	required bool  isHaveBeginFirstGame = 5;	// 已经开始第一局
+	required int32 maxPlayerCount = 6;			// 房间最大人数
+	required int32 payType = 7;					// 支付方式
+	required bool voice = 8;					//是否开启语音
+}
+
+message RoomPlayerInfoPROTO				// 房间内玩家信息（相对于牌局内玩家信息）
+{
+	optional int32 roleId = 1;			// 角色ID
+	optional int32 position = 2;		// 座位
+	optional string nickname = 3;		// 昵称
+	optional string headImageUrl = 4;	// 头像URL
+	optional int32 sex = 5;				// 性别
+	optional string ip = 6;				// 服务器有时需要将房间内所有玩家的IP发送给客户端
+	optional int32 status = 7; 			// 玩家状态
+	required int32 totalPoint = 8;		// 房间内累计得分
+	required int32 pointInGame = 9;		// 当前局得分
+}
+
+message BCRoomPlayerInfoSYN							// Battle 向 Client 同步房间玩家信息
+{
+	repeated RoomPlayerInfoPROTO playerInfo = 1;	// 角色信息及玩家的房间内状态信息
+	optional int32 totalRoundCount = 2;				// 总局数
+	optional int32 nowRoundCount = 3;				// 当前局数
+}
+
+message CBQuitRoomREQ	// Client 向 Battle 请求离开房间
+{
+}
+
+message BCQuitRoomRES			// Battle 向 Client 应答离开房间
+{
+	required int32 result = 1;	// 离开结果
+}
+
+message CBStartVoteDestroyREQ	// Client 向 Battle 请求发起投票销毁房间
+{
+}
+
+message BCStartVoteDestroyRES	// Battle 向 Client 应答发起投票销毁房间
+{
+	required int32 result = 1;	// 发起结果
+}
+
+
+enum EMVote				// 投票结果枚举值
+{
+	VOTE_AGREE = 1;		// 同意
+	VOTE_DISAGREE = 2;	// 不同意
+}
+
+message CBVoteDestroyREQ		// Client 向 Battle 请求投票销毁房间
+{
+	required int32 type = 1;	// 是否同意
+}
+
+message BCVoteDestroyRES		// Battle 向 Client 应答投票销毁房间
+{
+	required int32 result = 1;	// 投票结果
+}
+
+message BCVoteDestroyInfoSYN			// Battle 向 Client 同步投票销毁房间的信息
+{
+	required int32 applicant = 1;		// 发起人
+	repeated int32 agreePlayers = 2;	// 所有同意的人
+	repeated int32 disagreePlayers = 3;	// 所有不同意的人
+	required int32 remainTime = 4;		// 剩余的时间,单位毫秒
+}
+
+message BCDestroyRoomSYN		// Battle 向 Client 通知房间已销毁
+{
+	required int32 reason = 1;	// 房间销毁原因
+}
+
+message CBUpdateStatusREQ		// Client 向 Battle 请求更新玩家自身状态
+{
+	required int32 status = 1;	// 玩家状态
+}
+
+message BCUpdateStatusRES		// Battle 向 Client 应答更新玩家自身状态
+{
+	required int32 result = 1;	// 更新结果
+}
+
+message SameIpPROTO					// 相同IP的信息
+{
+	repeated int32 players = 1;		// IP相同的玩家列表
+}
+
+message BCSameIpSYN							// Battle 向 Client 同步相同IP的信息
+{
+	repeated SameIpPROTO sameGroups = 1;	// IP相同的玩家列表组
+}
+
+message BCIsContinueRoomSYN
+{
+	required int32 newRoomId = 1;					// 新房间ID
+}
+
+message BCContinueRoomPlayerInfoSYN
+{
+	repeated RoomPlayerInfoPROTO playerInfo = 1;	// 角色信息及玩家的房间内状态信息
+}
+
+message SecurePlayerPROTO
+{
+    required int32 roleId = 1;       //玩家Id
+    required bool isOpen = 2;        // 是否已开启GPS
+    required double latitude = 3;    // 纬度
+    required double longitude = 4;   // 经度
+}
+
+message BCSecureDetectSYN
+{
+    repeated SecurePlayerPROTO players = 1;        // 玩家IP信息
+}
+
+message CBGpsInfoREQ
+{
+    required bool isOpen = 1;        // 是否已开启GPS
+    required double latitude = 2;    // 纬度
+    required double longitude = 3;    // 经度
+}
+
+message BCGpsInfoRES
+{
+    required int32 result = 1;
+}

@@ -1,0 +1,21 @@
+用于记录客户端上报日志的http服务器
+
+可以使用nginx或apache服务器，需要配置php+mysql环境
+
+创建数据库及表：
+
+
+CREATE DATABASE `clientlog` /*!40100 COLLATE 'utf8_general_ci' */;
+CREATE TABLE `clientlog` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`logtype` VARCHAR(50) NULL DEFAULT NULL COMMENT '日志类型',
+	`logtime` DATETIME NULL DEFAULT NULL COMMENT '日志时间',
+	`logdata` MEDIUMTEXT NULL COMMENT '日志数据',
+	PRIMARY KEY (`id`),
+	INDEX `logtype` (`logtype`)
+)
+COMMENT='客户端上报的日志'
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=23
+;

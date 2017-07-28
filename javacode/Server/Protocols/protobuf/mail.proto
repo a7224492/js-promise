@@ -1,0 +1,26 @@
+package com.kodgames.message.proto.mail;
+option java_outer_classname = "MailProtoBuf";
+
+message MailProto				// 邮件信息
+{
+    required int64 id = 1;		// 邮件ID
+    required string msg = 2;	// 邮件内容
+    required int32 type = 3;	// 类型  2:绝对时间一次发送  3:按设定重复发送
+    required int64 time = 4;	// 创建时间
+}
+
+message GCNewMailSYNC	// Game 向 Client 通知有新邮件
+{
+}
+
+message CGMailREQ				// Client 向 Game 请求邮件列表
+{
+    optional int64 time = 1;	// 客户端最后的缓存时间
+}
+
+message GCMailRES						// Game 向 Client 应答邮件列表
+{
+    required int64 lastCheckTime = 1;	// 最新检查时间
+    required int64 oldCheckTime = 2;	// 旧邮件检查时间
+    repeated MailProto mails = 3;		// 邮件列表
+}

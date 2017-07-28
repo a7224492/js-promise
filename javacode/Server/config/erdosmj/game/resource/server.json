@@ -1,0 +1,9 @@
+{
+    "serverConfigs": [
+        {
+            "serverType": "agent", 
+            "ip": "10.23.1.176", 
+            "port": "8080"
+        }
+    ]
+} 

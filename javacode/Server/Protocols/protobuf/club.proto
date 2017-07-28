@@ -1,0 +1,384 @@
+package com.kodgames.message.proto.club;
+option java_outer_classname = "ClubProtoBuf";
+
+message CCLAllClubREQ // client 2 club 请求所有的俱乐部
+{
+    required int32 roleId = 1;			// 角色ID
+}
+
+message CLCAllClubRES // club 2 client 返回所有俱乐部
+{
+	required int32 result = 1;				// 查询结果，可能有一个俱乐部都没有的情况
+	repeated ClubInfoPROTO clubList = 2;	// 俱乐部信息列表
+}
+
+message ClubInfoPROTO						// 俱乐部的信息
+{
+	required int32 clubId = 1;				// 俱乐部Id
+	required string clubName = 2;			// 俱乐部名称
+	optional int32 memberCount = 3;			// 俱乐部人数
+	optional int32 myRoomCardCount = 4;		// 我的俱乐部房卡数量
+	optional int32 myTitle = 5;				// 我的等级、职位
+	optional string myInvitationCode = 6;	// 我的邀请码
+	optional int64 createTimestamp = 7;		// 俱乐部创建时间戳
+	optional string creator = 8;			// 创建人姓名
+	optional string manager = 9;			// 经理姓名
+	optional int32 clubLevel = 10;			// 俱乐部等级
+	optional int64 gameCount = 11;			// 俱乐部总局数 
+	optional string notice = 12;			// 俱乐部公告
+	optional int64 noticeTime = 13;			// 公告修改时间
+	optional int32 roomCost = 14;			// 房间消耗倍数
+	optional int32 payType = 15;			// 谁出房卡 1.建房间的；2.赢的
+	optional int32 applicantCount = 16;		// 申请者人数()
+	optional int64 todayGameCount = 17; 	// 当天游戏局数()
+	optional bool isBan = 18;				// 俱乐部是否处于封停状态
+}
+
+message CCLApplicantCountREQ		//经理请求俱乐部申请人数
+{
+}
+
+message CLCApplicantCountRES		//返回俱乐部申请人数
+{
+	required int32 result = 1;						// 查询结果,应该没有错误的情况
+	required int32 count = 2;						// 申请的人数
+}
+
+message CCLClubTableREQ // client 2 club 请求俱乐部牌桌
+{
+    required int32 roleId = 1;			// 角色ID
+    optional int32 clubId = 2;			// 俱乐部id，如果不填就是请求所有俱乐部
+}
+
+message CLCClubTableRES // club 2 client 返回俱乐部牌桌列表
+{
+	required int32 result = 1;						// 查询结果，可能有一个俱乐部都没有的情况
+	optional int32 clubId = 2;						// 俱乐部Id，如果没有就是所有俱乐部
+	repeated ClubTableInfoPROTO clubTableList = 3;	// 俱乐部牌桌列表
+}
+
+message ClubTableInfoPROTO
+{
+	required int32 clubId = 1;				// 牌桌所属俱乐部Id
+	optional string clubName = 2;			// 牌桌所属俱乐部名称
+	required int32 roomId = 3;				// 房间ID
+	optional int32 roomType = 4;			// 房间类型
+	optional string costDesc = 5;			// 房卡消耗描述
+	optional string payTypeDesc = 6;			// 房卡消耗描述
+	repeated string playerName = 7;			// 玩家姓名列表
+	required int32 playerMax = 8;			// 所需多少玩家
+	repeated int32 gameplays = 9;			// 玩法
+	required int32 roundCount = 10;			// 房间圈/局规则
+}
+
+message CCLJoinClubInfoREQ					// 通过邀请码请求俱乐部信息
+{
+	required string invitationCode = 1;
+}
+
+message CLCJoinClubInfoRES
+{
+	optional ClubInfoPROTO clubInfo = 1;	// 俱乐部信息
+	optional int32 inviter = 2;				// 邀请人信息
+	optional string inviterName = 3;
+	optional string inviterIcon = 4;
+	required int32 result = 5;
+	optional string info = 6;
+}
+
+message CCLJoinClubREQ // client 2 club 请求加入俱乐部
+{
+	required string invitationCode = 1;		// 邀请码
+}
+
+message CLCJoinClubRES // club 2 client 加入俱乐部的返回
+{
+	required int32 result = 1;				// 加入结果
+	optional string info = 2;				// 加入信息
+}
+
+message CCLQuitClubREQ	// client 2 club 请求退出俱乐部
+{
+	required int32 clubId = 1;
+}
+
+message CLCQuitClubRES	// club 2 client 退出俱乐部的返回
+{
+	required int32 result = 1;
+	required int32 clubId = 2;
+	optional string info = 3;
+}
+
+message CCLClubInfoREQ // client 2 club 请求俱乐部信息
+{
+	required int32 clubId = 1;
+}
+
+message CLCClubInfoRES // club 2 client 返回俱乐部数据
+{
+	required int32 result = 1;						// 查询结果
+	optional int32 clubId = 2;						// 俱乐部Id
+	optional ClubInfoPROTO info = 3;				// 俱乐部信息
+}
+
+message CCLClubMembersREQ // client 2 club 请求俱乐部会员列表
+{
+	required int32 clubId = 1;
+}
+
+message CLCClubMembersRES // club 2 client 返回俱乐部会员
+{
+	required int32 result = 1;						// 查询结果
+	required int32 clubId = 2;						// 俱乐部Id
+	repeated ClubMemberInfoPROTO members = 3;		// 会员列表
+}
+
+message ClubMemberInfoPROTO // 会员信息
+{
+	required int32 roleId = 1;						// 会员userId
+	required string roleName = 2;					// 姓名
+	required int32 title = 3;						// 职位
+	required int32 onlineFlag = 4;					// 是否在线
+	required int64 offlineTimestamp = 5;			// 下线时间戳
+	optional int64 joinTimestamp = 6;				// 入会时间戳
+	optional int64 applyTimestamp = 7;				// 申请时间戳
+	optional int32 gameCount = 8;					// 申请时游戏的总局数、或者在俱乐部中的总局数
+	optional int32 todayGameCount = 9;				// 在俱乐部中今天进行的局数
+	optional string inviterName = 10;				// 邀请人
+}
+
+message CCLClubApplicantListREQ // client 2 club 申请人列表
+{
+	required int32 clubId = 1;
+}
+
+message CLCClubApplicantListRES // club 2 client 申请人列表
+{
+	required int32 result = 1;						// 查询结果
+	required int32 clubId = 2;						// 俱乐部Id
+	repeated ClubMemberInfoPROTO members = 3;		// 会员列表
+}
+
+message CCLClubApplicantREQ	// client 2 club 同意申请/拒绝
+{
+	required int32 clubId = 1;
+	required int32 roleId = 2;
+	required int32 optype = 3;		// 0.同意 1.拒绝
+	optional int32 title = 4;		// 同意时给玩家指定的类型 1.初级会员 2.会员
+}
+
+message CLCClubApplicantRES	// club 2 client 同意/拒绝申请的结果
+{
+	required int32 result = 1;
+	required int32 clubId = 2;
+	required int32 roleId = 3;
+	required int32 optype = 4;
+}
+
+message CCLClubNoticeModifyREQ	// client 2 club 修改公告
+{
+	required int32 clubId = 1;
+	required string notice = 2;
+}
+
+message CLCClubNoticeModifyRES // club 2 client 修改公告结果
+{
+	required int32 result = 1;
+	required int32 clubId = 2;
+	optional string notice = 3;
+}
+
+message CCLClubCostModifyREQ // client 2 club 修改俱乐部消耗
+{
+	required int32 clubId = 1;
+	required int32 costType = 2;
+	required int32 payType = 3;
+}
+
+message CLCClubCostModifyRES // club 2 client 修改俱乐部消耗的结果
+{
+	required int32 result = 1;
+	required int32 clubId = 2;
+	optional int32 costType = 3;
+	optional int32 payType = 4;
+}
+
+message CCLClubMemberModifyREQ	// client 2 club 修改会员参数
+{
+	required int32 clubId = 1;
+	required int32 roleId = 2;
+	required int32 optype = 3;		// 0.更改会员类型 1.踢出
+	optional int32 title = 4;		// 更改的会员类型
+}
+
+message CLCClubMemberModifyRES	// club 2 client 修改会员结果
+{
+	required int32 result = 1;
+	required int32 clubId = 2;
+	required int32 optype = 3;
+	required int32 roleId = 4;
+}
+
+message ClubPlayerInfoPROTO // 俱乐部牌桌玩家基础信息
+{
+	required int32 roleId = 1;					// 用户ID
+	optional string roleName = 2;				// 用户名称
+	optional int32 totalPoint = 3;				// 用户得分，结算是要用
+	optional int32 position = 4;				// 角色座位，得分一样时扣小的
+}
+
+message CCLCreateRoomREQ // client 2 club 创建俱乐部房间
+{
+	required int32 roomType = 1;	// 房间类型
+	repeated int32 gameplays = 2;	// 玩法规则
+	required int32 roundCount = 3;	// 房间圈/局规则
+	required int32 creatorId = 4;	// 创建者id
+	required int32 clubId = 5;		// 俱乐部ID
+	optional bool voice = 6;		// 是否开启语音
+}
+
+message CLGCreateRoomREQ // club 2 game 创建俱乐部房间
+{
+
+	required int32 creatorId = 1;	// 创建者的roleId
+	required int32 roomType = 2;	// 房间类型
+	repeated int32 gameplays = 3;	// 玩法规则
+	required int32 roundCount = 4;	// 房间圈/局规则
+	optional int32 clubId = 5;		// 俱乐部ID
+	optional int32 cost = 6;		// 俱乐部消耗倍数(需要透传回来)
+	optional int32 payType = 7;		// 谁付房卡
+	optional bool voice = 8;		//是否开启语音
+}
+
+message GCLCreateRoomRES				// Game 向 club 应答创建房间
+{
+	required int32 result = 1;		// 房间创建结果
+	optional int32 battleId = 2;	// 战斗服ServerId
+	optional int32 roomId = 3;		// 房间ID
+	optional int32 clubId = 4;		// 俱乐部id
+	required int32 creatorId = 5;	// 创建者的id
+	required int32 cost = 6;						// 俱乐部消耗倍数(需要透传回来)
+	required int32 payType = 7;						// 谁付房卡
+	required int32 roundCount = 8;					// 房间圈/局规则
+	required int32 playerMax = 9;					// 玩家最大值
+	repeated int32 gameplays = 10;					// 玩法
+	required bool voice = 11;						//是否开启语音
+}
+
+message CLCCreateRoomRES				// club 向 Client 应答创建房间
+{
+	required int32 result = 1;		// 房间创建结果
+	optional int32 battleId = 2;	// 战斗服ServerId
+	optional int32 roomId = 3;		// 房间ID
+	optional int32 clubId = 4;		// 俱乐部id
+	optional bool voice = 5;		//是否开启语音
+}
+
+message CCLEnterRoomREQ					// client 2 club 请求进入房间
+{
+	required int32 roomId = 1;		// 俱乐部房间id
+	required int32 clubId = 2;		// 俱乐部id
+}
+
+message CLCEnterRoomRES					// club 2 clinet 返回进入房间
+{
+	required int32 result = 1;		// 进入房间结果
+	optional int32 roomId = 2;		// 真正的roomId
+	optional int32 clubId = 3;		// 俱乐部id
+	optional int32 battleId = 4;	// 房间的战斗服id
+	optional bool voice = 5;		//是否开启语音
+}
+
+message GCLEnterRoomSYN // game 2 club 同步进入房间的数据
+{
+	required int32 roomId = 1;						// 房间id
+	required ClubPlayerInfoPROTO player = 2;		// 玩家
+	required int32 clubId = 3;						// 所属俱乐部的id
+}
+
+message GCLQuitRoomSYN // game 2 club 同步离开房间的数据
+{
+	required int32 roomId = 1;						// 房间id
+	required ClubPlayerInfoPROTO player = 2;		// 玩家
+	required int32 clubId = 3;						// 所属俱乐部的id
+}
+
+message GCLDestroyRoomSYN // game 2 club 同步销毁房间的数据
+{
+	required int32 roomId = 1;
+	required int32 clubId = 2;						// 所属俱乐部的id
+}
+
+message GCLGmtDestroyRoomSYN // game 2 club 同步GMT销毁房间的数据
+{
+	required int32 roomId = 1;
+	required int32 clubId = 2;						// 所属俱乐部的id
+}
+
+message GCLFinalMatchResultSYN // game 2 club 同步房间结算数据
+{
+	required int32 roomId = 1;						// 房间ID
+	required int32 clubId = 2;						// 俱乐部id
+	repeated ClubPlayerInfoPROTO players = 3;		// 玩家列表
+}
+
+message GCLMatchResultSYN // game 2 club 同步一局结算数据 --- 完成局数累积需求
+{
+	required int32 roomId = 1;						// 房间ID
+	required int32 clubId = 2;						// 俱乐部id
+	repeated ClubPlayerInfoPROTO players = 3;		// 玩家列表
+}
+
+message GCLEnableSubCardSYN // game 2 club 同步这个房间可以扣卡了
+{
+	required int32 roomId = 1;						// 房间ID
+	required int32 clubId = 2;						// 俱乐部id
+}
+
+message CLCClubRoomCardModifySYN // club 2 client 同步俱乐部房卡数的变化
+{
+	required int32 roleId = 1;						// 角色id
+	required int32 clubId = 2;						// 俱乐部
+	required int32 roomCardCount = 3;				// 房卡数
+}
+
+message CLGCheckRoleInfoREQ
+{
+	required int32 roleId = 1;						// 检查的roleId
+	required int32 seqId = 2;						// 消息的序列号
+}
+
+message GCLCheckRoleInfoRES
+{
+	required int32 result = 1;
+	required int32 roleId = 2;						// 如果查到这个人就返回检查的，没有返回0
+	required int32 seqId = 3;						// 消息的序列号
+	optional string name = 4;						// 玩家的姓名
+}
+
+message GCLLoginSYN	// game 2 club 同步登陆数据
+{
+	required int32 roleId = 1;						// roleId
+	required string appKey = 2;						// 应用key
+	required string version = 3;					// 用户的版本
+	required string channel = 4;						// 用户平台
+	optional string name = 5;						// 姓名
+}
+
+message CLGBroadcastMSG // club 通过 game 向clients 进行广播
+{
+	repeated int32 roleId = 1;
+	required int32 protocolId = 2;
+	required bytes message = 3;
+}
+message ClCBanClubSYN  // club被封停推送
+{
+	required int32 clubId = 1;
+	required string clubName = 2;
+}
+
+message ClCBeKickClubSYN //		被踢出俱乐部推送
+{
+	required int32 clubId = 1;
+	required string clubName = 2;
+}

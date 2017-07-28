@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+<<<<<<< .working
+encoding//bi/Rules_GuangDong_bi.properties=UTF-8
+||||||| .merge-left.r27780
+=======
+encoding//bi/Rules_GuangDong_bi.properties=UTF-8
+encoding//bi/Rules_HaErbin_bi.properties=UTF-8
+encoding//bi/Rules_SiChuan_bi.properties=UTF-8
+>>>>>>> .merge-right.r27781
+encoding//resource/game.properties=UTF-8
+encoding/bi=UTF-8

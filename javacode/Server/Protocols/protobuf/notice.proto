@@ -1,0 +1,50 @@
+/**
+ * @author jiangzhen
+ * 公告协议
+ */
+package com.kodgames.message.proto.notice;
+
+option java_outer_classname = "NoticeProtoBuf";
+
+message NoticePROTO{
+    required int64 id = 1;			// 公告id
+    required string noticeName = 2; // 公告名称
+    required string content = 3;	// 公告内容
+    required string imgUrl = 4;		// 图像url
+    required int64 startTime = 5;	// 公告开始时间
+    required int64 endTime = 6;		// 公告结束时间
+    required int32 showTimes = 7;	// 公告展示次数
+}
+
+message GCNoticeVersionSYN{			// 公告推送消息
+    required int64 version = 1;		// 公告版本号
+}
+
+
+message CGNoticeREQ{
+    optional int64 version = 1;		// 公告版本号
+}
+
+message GCNoticeRES{
+    required int32 result = 1;		// 公告回复错误码
+    required int64 version = 2;		// 公告版本号
+    repeated NoticePROTO notices = 3; // 公告数据
+}
+
+//常驻公告协议
+message CGMainNoticeREQ{
+}
+
+message GCMainNoticeRES{
+    required int32 result = 1;		// 公告回复错误码
+    repeated MainNoticePROTO notices = 3; // 公告数据
+}
+
+message MainNoticePROTO{
+    required string type = 1;			// 公告类型
+    required int64 id = 2;				// 公告id，时间戳
+    required string title = 3; 			// 公告名称
+    required string content = 4;		// 公告内容
+    required int64 startTime = 5;		// 公告开始时间
+    required int64 endTime = 6;			// 公告结束时间
+}

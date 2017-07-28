@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="replaydump" default="init">
+
+    <property name="src" value="src/"/>
+    <property name="gen" value="gen/"/>
+    <property name="build" value="bin/"/>
+
+
+    <target name="xmlgen">
+        <java jar="lib/zdb.jar" fork="yes" append="yes">
+            <arg value="xmlgen"/>
+            <arg value="-java"/>
+            <arg value="-sizepolicyxml"/>
+            <arg value="./resource/zdb.xml"/>
+        </java>
+    </target>
+
+    <target name="init" depends="xmlgen">
+        <mkdir dir="${build}"/>
+    </target>
+
+    <target name="dist" depends="init">
+    </target>
+
+    <target name="all" depends="clean, dist"/>
+
+    <target name="clean">
+        <delete dir="${build}"/>
+        <delete dir="${gen}"/>
+    </target>
+
+    <target name="run">
+    </target>
+
+</project>

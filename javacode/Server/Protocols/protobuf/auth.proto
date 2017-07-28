@@ -1,0 +1,180 @@
+package com.kodgames.message.proto.auth;
+option java_outer_classname = "AuthProtoBuf";
+
+message CIAccountAuthREQ				// Client 向 Interface 请求认证
+{
+	required string channel = 1;		// 渠道
+	required string username = 2;		// 渠道用户名
+    required string refreshToken = 3;	// 刷新token
+	required string code = 4;			// code
+	optional string platform = 5;		// 平台
+	optional string proVersion = 6;		// 产品版本(资源版本)
+	optional string libVersion = 7;		// 运行库版本（整包版本）
+	optional int32 appCode = 8;			// App编号
+	optional string deviceId = 9;       // 设备id
+}
+
+message ProductVersionPROTO				// 产品版本信息
+{
+	required bool needUpdate = 1;		// 客户端是否需要更新
+	required string version = 2;		// 产品版本号
+	required string description = 3;	// 版本描述
+}
+
+message LibraryVersionPROTO				// 库版本信息
+{
+	required bool needUpdate = 1;		// 客户端是否需要更新
+	required bool forceUpdate = 2;		// 客户端是否需要强制更新
+	required string version = 3;		// 产品版本号
+	required string description = 4;	// 版本描述
+	required string url = 5;			// 下载地址
+}
+
+message ICAccountAuthRES							// Interface 向 Client 应答认证
+{
+	required int32 result = 1;						// 认证结果
+	required string channel = 2;					// 渠道
+	required string username = 3;					// 游戏内账号ID
+	required string refreshToken = 4;				// 刷新token
+    required int32 accountId = 5;					// 账号ID
+	required string nickname = 6;					// 昵称
+	required string headImageUrl = 7;				// 头像URL
+	required int32 sex = 8;							// 性别
+    required int32 roleId = 9;						// 角色ID
+	required int32 gameServerId = 10;				// 游戏服务器ID
+	required string ip = 11;						// 玩家IP
+	optional ProductVersionPROTO proVersion = 12;	// 产品版本(资源版本)
+	optional LibraryVersionPROTO libVersion = 13;	// 运行库版本（整包版本）
+	required int32 clubServerId = 14;				// 俱乐部服务器ID
+	
+	required int64 timestamp = 15;                   // 登录时间戳
+	required string signature = 16;                 // 签名，用来保护aid不被冒名
+	
+	optional string unionid = 17;                   // 把unionid传给客户端
+}
+
+message IAAccountAuthREQ					// Interface 向 Auth 请求认证
+{
+	required string channel = 1;			// 渠道
+	required string username = 2;			// 渠道用户名
+    required string refreshToken = 3;		// 刷新token
+	required string code = 4;				// code
+    required int32 clientConnectionId = 5; 	// 客户端连接ID
+	optional string platform = 6;			// 平台
+	optional string proVersion = 7;			// 产品版本(资源版本)
+	optional string libVersion = 8;			// 运行库版本（整包版本）
+	optional int32 appCode = 9;				// App编号
+	optional string deviceId = 10;			// 设备id
+}
+
+message AIAccountAuthRES							// Auth 向 Interface 应答认证
+{
+	required int32 result = 1;						// 验证结果
+	required string channel = 2;					// 渠道
+	required string username = 3;					// 游戏内账号ID
+	required string refreshToken = 4;				// 刷新token
+    required int32 accountId = 5;					// 账号ID
+	required string nickname = 6;					// 昵称
+	required string headImageUrl = 7;				// 头像URL
+	required int32 sex = 8;							// 性别
+	required int32 clientConnectionId = 9;			// 客户端连接ID
+	optional ProductVersionPROTO proVersion = 10;	// 产品版本(资源版本)
+	optional LibraryVersionPROTO libVersion = 11;	// 运行库版本（整包版本）
+	
+	required int64 timestamp = 14;                   // 登录时间戳
+	required string signature = 15;                 // 签名，用来保护aid不被冒名
+	
+	optional string unionid = 16;                   // 把unionid发送给客户端
+}
+
+message MergePlayerInfoPROTO
+{
+	required int32 appCode = 1;
+	required string channel = 2;
+	required string username = 3;
+	required string platform = 4;
+	required int32 clientConectionId = 5;
+	optional string nickname = 6;
+	optional string headImageUrl = 7;
+	optional int32 sex = 8;
+	optional int64 lastLoginTime = 9;		//玩家最后登陆时间
+}
+
+message AIMergePlayerInfoREQ				// 更新玩家信息的同步消息
+{
+	required int32 unionidAccountid = 1;
+	required int32 openidAccountid = 2;
+	required MergePlayerInfoPROTO playerInfo = 3;
+}
+
+message IAMergePlayerInfoRES
+{
+	required int32 result = 1;
+	required int32 oldAccountid = 2;
+	required int32 newAccountid = 3;
+	required MergePlayerInfoPROTO playerInfo = 4;
+}
+
+message IGMergePlayerInfoREQ
+{
+	required int32 unionidAccountid = 1;
+	required int32 openidAccountid = 2;
+	required MergePlayerInfoPROTO playerInfo = 3;
+}
+
+message GIMergePlayerInfoRES
+{
+	required int32 result = 1;
+	required int32 oldAccountid = 2;
+	required int32 newAccountid = 3;
+	required MergePlayerInfoPROTO playerInfo = 4;
+}
+//版本更新相关协议
+message IAVersionUpdateREQ					// Interface 向 AuthServer 请求更新
+{
+	required string channel = 1;			// 渠道
+	required string subchannel = 2;       // sub渠道
+	required string libVersion = 3;		// 运行库版本（整包版本）
+	required string proVersion = 4;		// 产品版本(资源版本)
+	required int32 clientConnectionId = 5;			// 客户端连接ID
+}
+
+message AIVersionUpdateRES					// AuthServer 向 Interface 回复更新
+{
+	required int32 result = 1;					// 返回结果（有更新，无更新，auth服务器找不到）
+	required string channel = 2;				// 渠道
+	required string subchannel = 3;				// sub渠道
+	required string libVersion = 4;				// 运行库版本（整包版本）
+	required string lastLibVersion = 5;			// 服务器支持的中最低运行库版本
+	required string libUrl = 6;					// 运行库下载地址（整包版本）
+	required string proVersion = 7;				// 产品版本(资源版本)
+	required bool proNeedUpdate = 8;			// 产品是否更新
+	required string proUrl = 9;					// 产品下载地址(资源版本)
+	required string reviewVersion = 10;			// 审核版本
+	required string reviewUrl = 11;				// 审核服版本
+	required int32 clientConnectionId = 12;		// 客户端连接ID
+}
+
+//版本更新相关协议
+message CIVersionUpdateREQ					// Client 向 Interface  请求更新
+{
+	required string channel = 1;			// 渠道
+	required string subchannel = 2;       // sub渠道
+	required string libVersion = 3;		// 运行库版本（整包版本）
+	required string proVersion = 4;		// 产品版本(资源版本)
+}
+
+message ICVersionUpdateRES					// Interface 向 Client 回复更新
+{
+	required int32 result = 1;			// 返回结果（有更新，无更新，auth服务器找不到）
+	required string channel = 2;		// 渠道
+	required string subchannel = 3;		// sub渠道
+	required string libVersion = 4;		// 运行库版本（整包版本）
+	required string lastLibVersion = 5;	// 服务器支持的中最低运行库版本
+	required string libUrl = 6;			// 运行库下载地址（整包版本）
+	required string proVersion = 7;		// 产品版本(资源版本)
+	required bool proNeedUpdate = 8;	// 产品是否更新
+	required string proUrl = 9;			// 产品下载地址(资源版本)
+	required string reviewVersion = 10;	// 审核版本
+	required string reviewUrl = 11;		// 审核服版本
+}

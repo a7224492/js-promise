@@ -1,0 +1,121 @@
+package com.kodgames.message.proto.server;
+option java_outer_classname = "ServerProtoBuf";
+
+message DbPROTO                     // 数据库信息
+{
+    required string type = 1;		// 类型
+    required string name = 2;		// 名称
+    optional string address = 3;	// 地址
+    optional string user = 4;		// 用户名
+    optional string password = 5;	// 密码
+}
+
+message ServerConfigPROTO           // 服务器配置信息
+{
+    required int32 type = 1;
+    optional int32 id = 2;
+    optional string listen_socket_for_server = 3;
+    optional string listen_http_for_server = 4;
+    optional string listen_http_for_gmt = 5;
+    optional string listen_http_for_client = 6;
+    optional string listen_web_socket_for_client = 7;
+    optional string listen_socket_for_client = 8;
+    optional string address_socket_for_client = 9;
+    optional string address_http_for_client = 10;
+    optional string address_web_socket_for_client = 11;
+    optional string address_socket_for_server = 12;
+    optional string address_http_for_server = 13;
+    optional string address_http_for_gmt = 14;
+    repeated DbPROTO dbs = 15;
+    required int32 area = 16;
+}
+
+message SSGetLaunchInfoREQ                  // Server 向 Server 请求启动信息
+{
+    required ServerConfigPROTO server = 1;	// 服务器配置
+}
+
+message SSGetLaunchInfoRES                  // Server 向 Server 应答启动信息
+{
+	required int32 result = 1;				// 请求结果
+    required ServerConfigPROTO server = 2;	// 服务器配置
+}
+
+message SSRegisterServerREQ                 // Server 向 Server 请求注册信息
+{
+    required ServerConfigPROTO server = 1;	// 服务器配置信息
+}
+
+message SSServerListSYNC                    // Server 向 Server 同步服务器列表
+{
+    repeated ServerConfigPROTO list = 1;	// 服务器信息列表
+}
+
+message SSServerDisconnectSYNC  // Server 向 Server 同步服务器列表
+{
+    required int32 id = 1;      // 服务器ID
+}
+
+message SSExchangePeerInfoSYNC      // Server 向 Server 同步交换信息
+{
+    required int32 serverID = 1;	// 服务器ID
+}
+
+message ClientDisconnectSYN     // Interface 向 Game和Battle 通知客户端断开连接
+{
+	required int64 mixId = 1;	// interface server ID + client connectionID in IS
+	required int32 founder = 2;	// 如果founder为0，表示interface，否则是GameServer的ServerID，interface不填充roleId，Game需要填充
+	optional int32 roleId = 3;	// 该客户端关联的role，因为在多次重启之后，connectionId会重复
+}
+
+message ServerExceptionSYNC			// Server 向 Client 通知协议处理异常
+{
+	optional int32 protocolId = 1;	// 协议ID
+}
+
+message PlatformPurchaseREQ
+{
+	required int32 seqId = 1; // 充值协议唯一标识
+	optional int32 playerId = 2;
+	repeated ParamKeyValue keyMap = 3;
+	optional string billingKey = 4;
+}
+
+message PlatformPurchaseRES
+{
+	required int32 result = 1;
+	required int32  seqId = 2;    // 充值协议唯一标识
+	optional string jsonObj = 3;  // 充值结果json串
+	optional string orderId = 4;
+	optional int32 playerId = 5;
+}
+
+message ParamKeyValue
+{
+	optional string key = 1;
+	optional string value = 2;
+}
+
+
+message PlatformAgentPurchaseREQ	  //代理商充值请求
+{
+	required int32 seqId = 1; // 充值协议唯一标识
+	optional int32 agencyID = 2;
+	repeated AgentParamKeyValue keyMap = 3;
+	optional string billingKey = 4;
+}
+
+message PlatformAgentPurchaseRES	
+{
+	required int32 result = 1;
+	required int32  seqId = 2;    // 充值协议唯一标识
+	optional string jsonObj = 3;  // 充值结果json串
+	optional string orderId = 4;
+	optional int32 agencyID = 5;
+}
+
+message AgentParamKeyValue
+{
+	optional string key = 1;
+	optional string value = 2;
+}

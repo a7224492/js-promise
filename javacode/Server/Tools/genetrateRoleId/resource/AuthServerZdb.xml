@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="AuthServer" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<zdb>
+		<xbean name="AccountInfo">
+			<variable name="accountId" type="int" /><!-- 账号ID -->
+			<variable name="platform" type="string" /><!-- 平台 -->
+			<variable name="channel" type="string" /><!-- 渠道 -->
+			<variable name="username" type="string" /><!-- 指定平台渠道下的用户名 -->
+			<variable name="refreshToken" type="string" /><!-- 刷新token -->
+			<variable name="nickname" type="string" /><!-- 昵称 -->
+			<variable name="sex" type="int" /><!-- 性别 -->
+			<variable name="headImgUrl" type="string" /><!-- 头像 -->
+			<variable name="createTime" type="long" /><!-- 账号创建时间 -->
+			<variable name="authTime" type="long" /><!-- 最后认证时间 -->
+			<variable name="tokenTime" type="long" /><!-- 连接token更新时间 -->
+			<variable name="province" type="string" /><!-- 省 -->
+ 			<variable name="city" type="string" /> <!-- 城市 -->
+ 			<variable name="country" type="string" /> <!-- 国家 -->
+ 			<variable name="unionid" type="string" /> <!-- unionid -->
+ 			<variable name="deviceId" type="string" /> <!-- 设备id -->
+		</xbean>
+
+		<xbean name="AccountIDSeed">
+			<variable name="seed" type="int" /><!-- .帐号ID种子 -->
+		</xbean>
+
+		<!-- key:channel+username，value:账户信息 -->
+		<table name="account_table" key="string" value="AccountInfo" />
+		
+		<!-- 与 account_table 相同，用于App1 -->
+		<table name="account_table_1" key="string" value="AccountInfo" />
+
+		<!-- 与 account_table 相同，用于App2 -->
+		<table name="account_table_2" key="string" value="AccountInfo" />
+		
+		<!-- 与 account_table 相同，用于App3 -->
+		<table name="account_table_3" key="string" value="AccountInfo" />
+		
+		<!-- 与 account_table 相同，用于App4 -->
+		<table name="account_table_4" key="string" value="AccountInfo" />
+		
+		<!-- 与 account_table 相同，用于App5 -->
+		<table name="account_table_5" key="string" value="AccountInfo" />
+		
+		<!-- 与 account_table 相同，用于App6 -->
+		<table name="account_table_6" key="string" value="AccountInfo" />
+		
+		<!-- 与 account_table 相同，用于App7 -->
+		<table name="account_table_7" key="string" value="AccountInfo" />
+		
+		<!-- 与 account_table 相同，用于App8 -->
+		<table name="account_table_8" key="string" value="AccountInfo" />
+		
+		<!-- 与 account_table 相同，用于App9 -->
+		<table name="account_table_9" key="string" value="AccountInfo" />
+		
+		<!-- 与 account_table 相同，用于App10 -->
+		<table name="account_table_10" key="string" value="AccountInfo" />
+		
+		<!-- key:accountId, value:由平台、渠道、用户名生成的用户唯一标识字符串 -->
+		<table name="user_account" key="int" value="string" />
+
+		<!-- key:配置号 value:配置值 -->
+		<table name="global_accountid" key="int" value="AccountIDSeed" />
+
+		<xbean name="ProVersion">
+			<variable name="version" type="string" /><!-- 运行库版本号 -->
+			<variable name="description" type="string" /><!-- 运行库版本描述 -->
+		</xbean>
+		
+		<xbean name="LibVersion">
+			<variable name="version" type="string" /><!-- 运行库版本号 -->
+			<variable name="description" type="string" /><!-- 运行库版本描述 -->
+			<variable name="url" type="string" /><!-- 下载地址 -->
+			<variable name="forceUpdate" type="boolean" /><!-- 是否需要强制更新 -->
+		</xbean>
+		
+		<xbean name="ClientVersion">
+			<variable name="proVersion" type="ProVersion" /><!-- 产品版本 -->
+			<variable name="libVersions" type="map" key="string" value="LibVersion" /><!-- 运行库版本:key是平台 -->
+		</xbean>
+		
+		
+		<!-- ===========================unionid到roleId==================================== -->
+		<table name="unionid_accountid_table" key="string" value="UnionidAccountidBean" />
+		<table name="unionid_accountid_table_1" key="string" value="UnionidAccountidBean" />
+		<xbean name="UnionidAccountidBean">
+			<variable name="accountId" type="int" />
+			<variable name="lastLoginTime" type="long" />		<!--accountId, 最后登入时间,,来自roleinfo -->
+			<variable name="mergeList" type="vector" value="int"/>
+		</xbean>
+		
+		<!-- ===========================deviceid到unionid==================================== -->
+		<xbean name="DeviceidUnionidBean">
+			<variable name="UnionidList" type="vector" value="string"/>
+		</xbean>
+		<table name="deviceid_unionid_table" key="string" value="DeviceidUnionidBean" />
+		
+		<!-- ===========================新平台绑定记录============================== -->
+		<table name="jid_bind_record_table" key="int" value="RecordList" />
+		<xbean name="RecordList">
+			<variable name="record" value="JidBindRecordBean" type="vector" />
+		</xbean>
+		<xbean name="JidBindRecordBean">
+			<variable name="deviceId" type="string" />  <!-- 设备id -->
+			<variable name="appCode" type="int" />		<!-- appCode -->
+			<variable name="accountId" type="int" />	 
+			<variable name="openid" type="string" />
+			<variable name="nickname" type="string" />
+			<variable name="status" type="int" /> <!-- 0：没有被绑定过，1：被绑定过，2：被解绑过 -->
+		</xbean>
+		
+		<!-- ==================记录设备id是否被绑定过================================== -->
+		<table name="deviceid_bind_record_table" key="string" value="DeviceIdBindRecordBean" />
+		<xbean name="DeviceIdBindRecordBean">
+			<variable name="accountId" type="int" />
+		</xbean>
+
+		<!-- ===========================deviceid到accountid==================================== -->
+		<xbean name="DeviceidAccountidBean">
+			<variable name="accountIdList" type="vector" value="int"/>
+		</xbean>
+		<table name="deviceid_accountid_table" key="string" value="DeviceidAccountidBean" />
+
+		<!-- key:配置号 value:配置值 -->
+		<table name="global_client_version" key="int" value="ClientVersion" />
+		
+		<!-- ===========================channel + subchannel 到versioninfo ==================================== -->
+		<table name="channel_version_table" key="string" value="VersionUpdateBean" />
+		<xbean name="VersionUpdateBean">
+			<variable name="channel" type="string" />			<!-- 渠道 -->
+			<variable name="subchannel" type="string" />		<!-- sub渠道 -->
+			<variable name="libVersion" type="string" />		<!--Library当前版本 -->
+			<variable name="lastLibVersion" type="string" />	<!--Library最低版本 -->
+			<variable name="LibUrl" type="string" />			<!--Library下载地址 -->
+			<variable name="proVersion" type="string" />		<!--product版本 -->
+			<variable name="proForceUpdate" type="boolean" />	<!--product是否需要提示热更新 -->
+			<variable name="proUrl" type="string" />			<!--product下载地址 -->
+			<variable name="reviewVersion" type="string" />		<!--审核版本 -->
+			<variable name="reviewUrl" type="string" />			<!--审核服务地址 -->
+		</xbean>
+		
+	</zdb>
+</project>

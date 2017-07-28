@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="resource"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/third_lib/jar/slf4j-api-1.7.12.jar"/>
+	<classpathentry kind="lib" path="/third_lib/jar/gmtools.jar"/>
+	<classpathentry kind="lib" path="/third_lib/jar/protobuf-java-2.6.1.jar"/>
+	<classpathentry kind="lib" path="/third_lib/jar/KodThreadPool.jar"/>
+	<classpathentry kind="lib" path="/third_lib/jar/kodbilog.jar"/>
+	<classpathentry kind="lib" path="/third_lib/jar/KodTimer.jar"/>
+	<classpathentry kind="lib" path="/third_lib/jar/KodEvent.jar"/>
+	<classpathentry kind="lib" path="/third_lib/jar/KodTask.jar"/>
+	<classpathentry kind="lib" path="/third_lib/jar/jackson-annotations-2.6.3.jar"/>
+	<classpathentry kind="lib" path="/third_lib/jar/jackson-core-2.6.3.jar"/>
+	<classpathentry kind="lib" path="/third_lib/jar/jackson-databind-2.6.3.jar"/>
+	<classpathentry kind="lib" path="/third_lib/jar/logback-classic-1.1.3.jar"/>
+	<classpathentry kind="lib" path="/third_lib/jar/logback-core-1.1.3.jar"/>
+	<classpathentry kind="lib" path="/third_lib/jar/KodHttpClient.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Message"/>
+	<classpathentry kind="lib" path="/third_lib/jar/HttpClient_Apache.jar"/>
+	<classpathentry kind="lib" path="/third_lib/jar/zdb.jar" sourcepath="D:/SVN/mahjong7/Server/Zdb.zip"/>
+	<classpathentry kind="lib" path="/third_lib/jar/mysql-connector-java-5.1.36-bin.jar"/>
+	<classpathentry kind="lib" path="/third_lib/jar/KodHttpServer.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CorgiServerCore"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="/third_lib/jar/netty-all-4.0.33.Final.jar"/>
+	<classpathentry kind="lib" path="/third_lib/jar/ip.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

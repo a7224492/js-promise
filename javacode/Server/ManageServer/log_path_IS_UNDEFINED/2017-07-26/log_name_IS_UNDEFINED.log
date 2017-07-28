@@ -1,0 +1,195 @@
+2017-07-26 11:09:55,422 [Thread:main] i.n.u.i.l.InternalLoggerFactory      L71   DEBUG - Using SLF4J as the default logging framework
+2017-07-26 11:09:55,434 [Thread:main] i.n.util.internal.PlatformDependent0 L76   DEBUG - java.nio.Buffer.address: available
+2017-07-26 11:09:55,436 [Thread:main] i.n.util.internal.PlatformDependent0 L76   DEBUG - sun.misc.Unsafe.theUnsafe: available
+2017-07-26 11:09:55,436 [Thread:main] i.n.util.internal.PlatformDependent0 L71   DEBUG - sun.misc.Unsafe.copyMemory: available
+2017-07-26 11:09:55,436 [Thread:main] i.n.util.internal.PlatformDependent0 L76   DEBUG - java.nio.Bits.unaligned: true
+2017-07-26 11:09:55,437 [Thread:main] i.n.util.internal.PlatformDependent  L71   DEBUG - Platform: Windows
+2017-07-26 11:09:55,438 [Thread:main] i.n.util.internal.PlatformDependent  L76   DEBUG - Java version: 8
+2017-07-26 11:09:55,438 [Thread:main] i.n.util.internal.PlatformDependent  L76   DEBUG - -Dio.netty.noUnsafe: false
+2017-07-26 11:09:55,438 [Thread:main] i.n.util.internal.PlatformDependent  L76   DEBUG - sun.misc.Unsafe: available
+2017-07-26 11:09:55,439 [Thread:main] i.n.util.internal.PlatformDependent  L76   DEBUG - -Dio.netty.noJavassist: false
+2017-07-26 11:09:55,440 [Thread:main] i.n.util.internal.PlatformDependent  L71   DEBUG - Javassist: unavailable
+2017-07-26 11:09:55,440 [Thread:main] i.n.util.internal.PlatformDependent  L71   DEBUG - You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance.
+2017-07-26 11:09:55,440 [Thread:main] i.n.util.internal.PlatformDependent  L76   DEBUG - -Dio.netty.tmpdir: C:\Users\ADMINI~1\AppData\Local\Temp (java.io.tmpdir)
+2017-07-26 11:09:55,440 [Thread:main] i.n.util.internal.PlatformDependent  L76   DEBUG - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2017-07-26 11:09:55,440 [Thread:main] i.n.util.internal.PlatformDependent  L76   DEBUG - -Dio.netty.noPreferDirect: false
+2017-07-26 11:09:55,447 [Thread:main] i.n.c.MultithreadEventLoopGroup      L76   DEBUG - -Dio.netty.eventLoopThreads: 8
+2017-07-26 11:09:55,465 [Thread:main] io.netty.channel.nio.NioEventLoop    L76   DEBUG - -Dio.netty.noKeySetOptimization: false
+2017-07-26 11:09:55,466 [Thread:main] io.netty.channel.nio.NioEventLoop    L76   DEBUG - -Dio.netty.selectorAutoRebuildThreshold: 512
+2017-07-26 11:09:55,502 [Thread:main] c.k.c.core.net.server.SimpleServer   L35   INFO  - Success to initialize SimpleServer!
+2017-07-26 11:09:55,503 [Thread:main] c.k.m.start.NetInitializer           L47   INFO  - Begin to open port:13100 for Server
+2017-07-26 11:09:55,513 [Thread:main] i.n.util.internal.ThreadLocalRandom  L71   DEBUG - -Dio.netty.initialSeedUniquifier: 0xeddcb749f054b068 (took 3 ms)
+2017-07-26 11:09:55,553 [Thread:main] io.netty.buffer.ByteBufUtil          L76   DEBUG - -Dio.netty.allocator.type: unpooled
+2017-07-26 11:09:55,553 [Thread:main] io.netty.buffer.ByteBufUtil          L76   DEBUG - -Dio.netty.threadLocalDirectBufferSize: 65536
+2017-07-26 11:09:55,553 [Thread:main] io.netty.buffer.ByteBufUtil          L76   DEBUG - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2017-07-26 11:09:55,583 [Thread:main] io.netty.util.NetUtil                L86   DEBUG - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2017-07-26 11:09:55,583 [Thread:main] io.netty.util.NetUtil                L81   DEBUG - \proc\sys\net\core\somaxconn: 200 (non-existent)
+2017-07-26 11:09:55,592 [Thread:main] c.kodgames.manageserver.ManageServer L36   INFO  - ManageServer is ready!!!
+2017-07-26 11:09:55,619 [Thread:main] c.k.gmtools.handler.GmtoolsHandler   L35   INFO  - GmtoolsHandler init {AddInterfaceIp=com.kodgames.manageserver.service.gmtools.AddInterfaceIp@5be6e01c, ServerStatus=com.kodgames.manageserver.service.gmtools.ServerStatusHandler@1c93084c}
+2017-07-26 11:09:56,021 [Thread:main] c.k.corgi.httpserver.HttpServer      L58   INFO  - start HttpServer...
+2017-07-26 11:09:56,025 [Thread:main] c.k.g.httpserver.GmtoolsHttpServer   L32   INFO  - Gmtools Start On Port 13101
+2017-07-26 11:09:56,414 [Thread:main] c.k.corgi.httpserver.HttpServer      L58   INFO  - start HttpServer...
+2017-07-26 11:09:56,417 [Thread:main] c.k.m.start.PurchaseController       L23   INFO  - PurchaseController : start purchase! port=23900
+2017-07-26 11:09:57,125 [Thread:main] c.k.corgi.httpserver.HttpServer      L58   INFO  - start HttpServer...
+2017-07-26 11:09:57,144 [Thread:main] c.k.m.start.AgentPurchaseController  L24   INFO  - AgentPurchaseController : start agentPurchase! port=0
+2017-07-26 11:10:06,741 [Thread:nioEventLoopGroup-3-1] c.k.c.c.n.h.netty.MessageProcessor   L361  DEBUG - Active  connectionID:10001
+2017-07-26 11:10:06,756 [Thread:pool-ServerMessageInitializer-1-thread-1] io.netty.util.Recycler               L76   DEBUG - -Dio.netty.recycler.maxCapacity.default: 262144
+2017-07-26 11:10:06,758 [Thread:pool-ServerMessageInitializer-1-thread-1] c.k.m.n.servers.SSConnectionHandler  L29   INFO  - Connection active. Remote Server Address:/127.0.0.1:54495
+2017-07-26 11:10:06,764 [Thread:nioEventLoopGroup-3-1] io.netty.buffer.AbstractByteBuf      L81   DEBUG - -Dio.netty.buffer.bytebuf.checkAccessible: true
+2017-07-26 11:10:06,766 [Thread:nioEventLoopGroup-3-1] io.netty.util.ResourceLeakDetector   L81   DEBUG - -Dio.netty.leakDetection.level: simple
+2017-07-26 11:10:06,767 [Thread:nioEventLoopGroup-3-1] io.netty.util.ResourceLeakDetector   L81   DEBUG - -Dio.netty.leakDetection.maxRecords: 4
+2017-07-26 11:10:06,795 [Thread:nioEventLoopGroup-3-1] io.netty.util.internal.Cleaner0      L76   DEBUG - java.nio.ByteBuffer.cleaner(): available
+2017-07-26 11:10:06,796 [Thread:nioEventLoopGroup-3-1] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393223:60007, ip address /127.0.0.1:54495, connectionid 10001 connection 1777634905 len 2 sendAmount 1
+2017-07-26 11:10:06,807 [Thread:nioEventLoopGroup-3-1] c.k.c.c.n.h.netty.MessageProcessor   L224  DEBUG - read: protocol id is 393217:60001, ip address /127.0.0.1:54495, connectionid 10001 len 21 recvAmount 1
+2017-07-26 11:10:06,872 [Thread:pool-ServerMessageInitializer-1-thread-2] c.k.m.service.servers.ServerService  L166  INFO  - build launch info ip is 127.0.0.1 type 9
+2017-07-26 11:10:06,914 [Thread:nioEventLoopGroup-3-1] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393218:60002, ip address /127.0.0.1:54495, connectionid 10001 connection 1777634905 len 120 sendAmount 2
+2017-07-26 11:10:06,915 [Thread:nioEventLoopGroup-3-1] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393220:60004, ip address /127.0.0.1:54495, connectionid 10001 connection 1777634905 len 0 sendAmount 3
+2017-07-26 11:11:03,607 [Thread:nioEventLoopGroup-3-1] c.k.c.c.n.h.netty.MessageProcessor   L387  DEBUG - exceptionCaught--Remote Peer:/127.0.0.1:54495 java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+2017-07-26 11:11:03,612 [Thread:nioEventLoopGroup-3-1] c.k.c.core.session.ConnectionManager L123  DEBUG - Remove connectionid:10001 
+2017-07-26 11:11:03,612 [Thread:nioEventLoopGroup-3-1] c.k.c.c.n.h.netty.MessageProcessor   L377  DEBUG - Inactive connetionID:10001
+2017-07-26 11:11:03,630 [Thread:pool-ServerMessageInitializer-1-thread-3] c.k.m.n.servers.SSConnectionHandler  L34   INFO  - Connection inactive. Remote Server Address:/127.0.0.1:54495 id 10001
+2017-07-26 11:11:03,630 [Thread:pool-ServerMessageInitializer-1-thread-3] c.k.m.service.servers.ServerService  L593  INFO  - server disconnect, address is /127.0.0.1:54495 id
+2017-07-26 11:11:03,630 [Thread:pool-ServerMessageInitializer-1-thread-3] c.k.g.httpserver.GmtoolsHttpServer   L50   INFO  - Gmtools removeServerList 17367041
+2017-07-26 11:11:21,935 [Thread:nioEventLoopGroup-3-2] c.k.c.c.n.h.netty.MessageProcessor   L361  DEBUG - Active  connectionID:10002
+2017-07-26 11:11:21,936 [Thread:pool-ServerMessageInitializer-1-thread-4] c.k.m.n.servers.SSConnectionHandler  L29   INFO  - Connection active. Remote Server Address:/127.0.0.1:54569
+2017-07-26 11:11:21,936 [Thread:nioEventLoopGroup-3-2] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393223:60007, ip address /127.0.0.1:54569, connectionid 10002 connection 1058646675 len 2 sendAmount 1
+2017-07-26 11:11:21,966 [Thread:nioEventLoopGroup-3-2] c.k.c.c.n.h.netty.MessageProcessor   L224  DEBUG - read: protocol id is 393217:60001, ip address /127.0.0.1:54569, connectionid 10002 len 21 recvAmount 1
+2017-07-26 11:11:21,968 [Thread:pool-ServerMessageInitializer-1-thread-5] c.k.m.service.servers.ServerService  L166  INFO  - build launch info ip is 127.0.0.1 type 9
+2017-07-26 11:11:21,970 [Thread:nioEventLoopGroup-3-2] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393218:60002, ip address /127.0.0.1:54569, connectionid 10002 connection 1058646675 len 120 sendAmount 2
+2017-07-26 11:11:21,971 [Thread:nioEventLoopGroup-3-2] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393220:60004, ip address /127.0.0.1:54569, connectionid 10002 connection 1058646675 len 0 sendAmount 3
+2017-07-26 11:11:49,753 [Thread:nioEventLoopGroup-3-2] c.k.c.c.n.h.netty.MessageProcessor   L387  DEBUG - exceptionCaught--Remote Peer:/127.0.0.1:54569 java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+2017-07-26 11:11:49,753 [Thread:nioEventLoopGroup-3-2] c.k.c.core.session.ConnectionManager L123  DEBUG - Remove connectionid:10002 
+2017-07-26 11:11:49,753 [Thread:nioEventLoopGroup-3-2] c.k.c.c.n.h.netty.MessageProcessor   L377  DEBUG - Inactive connetionID:10002
+2017-07-26 11:11:49,754 [Thread:pool-ServerMessageInitializer-1-thread-6] c.k.m.n.servers.SSConnectionHandler  L34   INFO  - Connection inactive. Remote Server Address:/127.0.0.1:54569 id 10002
+2017-07-26 11:11:49,755 [Thread:pool-ServerMessageInitializer-1-thread-6] c.k.m.service.servers.ServerService  L593  INFO  - server disconnect, address is /127.0.0.1:54569 id
+2017-07-26 11:11:49,755 [Thread:pool-ServerMessageInitializer-1-thread-6] c.k.g.httpserver.GmtoolsHttpServer   L50   INFO  - Gmtools removeServerList 17367041
+2017-07-26 11:12:10,529 [Thread:nioEventLoopGroup-3-3] c.k.c.c.n.h.netty.MessageProcessor   L361  DEBUG - Active  connectionID:10003
+2017-07-26 11:12:10,532 [Thread:pool-ServerMessageInitializer-1-thread-7] c.k.m.n.servers.SSConnectionHandler  L29   INFO  - Connection active. Remote Server Address:/127.0.0.1:54626
+2017-07-26 11:12:10,532 [Thread:nioEventLoopGroup-3-3] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393223:60007, ip address /127.0.0.1:54626, connectionid 10003 connection 1621548950 len 2 sendAmount 1
+2017-07-26 11:12:44,171 [Thread:nioEventLoopGroup-3-3] c.k.c.c.n.h.netty.MessageProcessor   L224  DEBUG - read: protocol id is 393217:60001, ip address /127.0.0.1:54626, connectionid 10003 len 21 recvAmount 1
+2017-07-26 11:12:44,173 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.m.service.servers.ServerService  L166  INFO  - build launch info ip is 127.0.0.1 type 9
+2017-07-26 11:12:44,177 [Thread:nioEventLoopGroup-3-3] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393218:60002, ip address /127.0.0.1:54626, connectionid 10003 connection 1621548950 len 120 sendAmount 2
+2017-07-26 11:12:44,178 [Thread:nioEventLoopGroup-3-3] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393220:60004, ip address /127.0.0.1:54626, connectionid 10003 connection 1621548950 len 0 sendAmount 3
+2017-07-26 11:12:50,702 [Thread:nioEventLoopGroup-3-3] c.k.c.c.n.h.netty.MessageProcessor   L387  DEBUG - exceptionCaught--Remote Peer:/127.0.0.1:54626 java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+2017-07-26 11:12:50,702 [Thread:nioEventLoopGroup-3-3] c.k.c.core.session.ConnectionManager L123  DEBUG - Remove connectionid:10003 
+2017-07-26 11:12:50,703 [Thread:nioEventLoopGroup-3-3] c.k.c.c.n.h.netty.MessageProcessor   L377  DEBUG - Inactive connetionID:10003
+2017-07-26 11:12:50,703 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.m.n.servers.SSConnectionHandler  L34   INFO  - Connection inactive. Remote Server Address:/127.0.0.1:54626 id 10003
+2017-07-26 11:12:50,703 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.m.service.servers.ServerService  L593  INFO  - server disconnect, address is /127.0.0.1:54626 id
+2017-07-26 11:12:50,703 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.g.httpserver.GmtoolsHttpServer   L50   INFO  - Gmtools removeServerList 17367041
+2017-07-26 11:12:53,395 [Thread:nioEventLoopGroup-3-4] c.k.c.c.n.h.netty.MessageProcessor   L361  DEBUG - Active  connectionID:10004
+2017-07-26 11:12:53,397 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.m.n.servers.SSConnectionHandler  L29   INFO  - Connection active. Remote Server Address:/127.0.0.1:54683
+2017-07-26 11:12:53,407 [Thread:nioEventLoopGroup-3-4] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393223:60007, ip address /127.0.0.1:54683, connectionid 10004 connection 1477994632 len 2 sendAmount 1
+2017-07-26 11:12:54,408 [Thread:nioEventLoopGroup-3-4] io.netty.channel.nio.NioEventLoop    L76   DEBUG - Selector.select() returned prematurely 3 times in a row.
+2017-07-26 11:26:21,865 [Thread:nioEventLoopGroup-3-4] c.k.c.c.n.h.netty.MessageProcessor   L224  DEBUG - read: protocol id is 393217:60001, ip address /127.0.0.1:54683, connectionid 10004 len 21 recvAmount 1
+2017-07-26 11:26:21,866 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.m.service.servers.ServerService  L166  INFO  - build launch info ip is 127.0.0.1 type 9
+2017-07-26 11:26:21,870 [Thread:nioEventLoopGroup-3-4] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393218:60002, ip address /127.0.0.1:54683, connectionid 10004 connection 1477994632 len 120 sendAmount 2
+2017-07-26 11:26:21,871 [Thread:nioEventLoopGroup-3-4] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393220:60004, ip address /127.0.0.1:54683, connectionid 10004 connection 1477994632 len 0 sendAmount 3
+2017-07-26 11:26:28,425 [Thread:nioEventLoopGroup-3-4] c.k.c.c.n.h.netty.MessageProcessor   L387  DEBUG - exceptionCaught--Remote Peer:/127.0.0.1:54683 java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+2017-07-26 11:26:28,426 [Thread:nioEventLoopGroup-3-4] c.k.c.core.session.ConnectionManager L123  DEBUG - Remove connectionid:10004 
+2017-07-26 11:26:28,426 [Thread:nioEventLoopGroup-3-4] c.k.c.c.n.h.netty.MessageProcessor   L377  DEBUG - Inactive connetionID:10004
+2017-07-26 11:26:28,433 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.m.n.servers.SSConnectionHandler  L34   INFO  - Connection inactive. Remote Server Address:/127.0.0.1:54683 id 10004
+2017-07-26 11:26:28,434 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.m.service.servers.ServerService  L593  INFO  - server disconnect, address is /127.0.0.1:54683 id
+2017-07-26 11:26:28,434 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.g.httpserver.GmtoolsHttpServer   L50   INFO  - Gmtools removeServerList 17367041
+2017-07-26 11:26:31,706 [Thread:nioEventLoopGroup-3-5] c.k.c.c.n.h.netty.MessageProcessor   L361  DEBUG - Active  connectionID:10005
+2017-07-26 11:26:31,708 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.m.n.servers.SSConnectionHandler  L29   INFO  - Connection active. Remote Server Address:/127.0.0.1:55095
+2017-07-26 11:26:31,708 [Thread:nioEventLoopGroup-3-5] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393223:60007, ip address /127.0.0.1:55095, connectionid 10005 connection 1067821763 len 2 sendAmount 1
+2017-07-26 11:26:40,657 [Thread:nioEventLoopGroup-3-5] c.k.c.c.n.h.netty.MessageProcessor   L224  DEBUG - read: protocol id is 393217:60001, ip address /127.0.0.1:55095, connectionid 10005 len 21 recvAmount 1
+2017-07-26 11:26:40,658 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.m.service.servers.ServerService  L166  INFO  - build launch info ip is 127.0.0.1 type 9
+2017-07-26 11:26:40,660 [Thread:nioEventLoopGroup-3-5] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393218:60002, ip address /127.0.0.1:55095, connectionid 10005 connection 1067821763 len 120 sendAmount 2
+2017-07-26 11:26:40,660 [Thread:nioEventLoopGroup-3-5] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393220:60004, ip address /127.0.0.1:55095, connectionid 10005 connection 1067821763 len 0 sendAmount 3
+2017-07-26 11:26:40,770 [Thread:nioEventLoopGroup-3-5] c.k.c.c.n.h.netty.MessageProcessor   L387  DEBUG - exceptionCaught--Remote Peer:/127.0.0.1:55095 java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+2017-07-26 11:26:40,771 [Thread:nioEventLoopGroup-3-5] c.k.c.core.session.ConnectionManager L123  DEBUG - Remove connectionid:10005 
+2017-07-26 11:26:40,772 [Thread:nioEventLoopGroup-3-5] c.k.c.c.n.h.netty.MessageProcessor   L377  DEBUG - Inactive connetionID:10005
+2017-07-26 11:26:40,774 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.m.n.servers.SSConnectionHandler  L34   INFO  - Connection inactive. Remote Server Address:/127.0.0.1:55095 id 10005
+2017-07-26 11:26:40,775 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.m.service.servers.ServerService  L593  INFO  - server disconnect, address is /127.0.0.1:55095 id
+2017-07-26 11:26:40,775 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.g.httpserver.GmtoolsHttpServer   L50   INFO  - Gmtools removeServerList 17367041
+2017-07-26 11:27:16,953 [Thread:nioEventLoopGroup-3-6] c.k.c.c.n.h.netty.MessageProcessor   L361  DEBUG - Active  connectionID:10006
+2017-07-26 11:27:16,955 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.m.n.servers.SSConnectionHandler  L29   INFO  - Connection active. Remote Server Address:/127.0.0.1:55238
+2017-07-26 11:27:16,956 [Thread:nioEventLoopGroup-3-6] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393223:60007, ip address /127.0.0.1:55238, connectionid 10006 connection 578371393 len 2 sendAmount 1
+2017-07-26 11:27:17,075 [Thread:nioEventLoopGroup-3-6] c.k.c.c.n.h.netty.MessageProcessor   L224  DEBUG - read: protocol id is 393217:60001, ip address /127.0.0.1:55238, connectionid 10006 len 21 recvAmount 1
+2017-07-26 11:27:17,076 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.m.service.servers.ServerService  L166  INFO  - build launch info ip is 127.0.0.1 type 9
+2017-07-26 11:27:17,077 [Thread:nioEventLoopGroup-3-6] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393218:60002, ip address /127.0.0.1:55238, connectionid 10006 connection 578371393 len 120 sendAmount 2
+2017-07-26 11:27:17,078 [Thread:nioEventLoopGroup-3-6] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393220:60004, ip address /127.0.0.1:55238, connectionid 10006 connection 578371393 len 0 sendAmount 3
+2017-07-26 11:27:17,195 [Thread:nioEventLoopGroup-3-6] c.k.c.c.n.h.netty.MessageProcessor   L224  DEBUG - read: protocol id is 393219:60003, ip address /127.0.0.1:55238, connectionid 10006 len 125 recvAmount 2
+2017-07-26 11:27:17,196 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.m.service.servers.ServerService  L95   INFO  - a server register, id is 17367041 , type is 2
+2017-07-26 11:27:17,196 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.g.httpserver.GmtoolsHttpServer   L45   INFO  - Gmtools addServerList 17367041 127.0.0.1:201016
+2017-07-26 11:27:17,196 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.g.httpserver.GmtoolsHttpServer   L45   INFO  - Gmtools addServerList 17367041 127.0.0.1:201016
+2017-07-26 11:27:17,196 [Thread:nioEventLoopGroup-3-6] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393220:60004, ip address /127.0.0.1:55238, connectionid 10006 connection 578371393 len 116 sendAmount 4
+2017-07-26 11:27:51,561 [Thread:nioEventLoopGroup-3-6] c.k.c.c.n.h.netty.MessageProcessor   L387  DEBUG - exceptionCaught--Remote Peer:/127.0.0.1:55238 java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+2017-07-26 11:27:51,562 [Thread:nioEventLoopGroup-3-6] c.k.c.core.session.ConnectionManager L123  DEBUG - Remove connectionid:10006 
+2017-07-26 11:27:51,562 [Thread:nioEventLoopGroup-3-6] c.k.c.c.n.h.netty.MessageProcessor   L377  DEBUG - Inactive connetionID:10006
+2017-07-26 11:27:51,563 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.m.n.servers.SSConnectionHandler  L34   INFO  - Connection inactive. Remote Server Address:/127.0.0.1:55238 id 10006
+2017-07-26 11:27:51,563 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.m.service.servers.ServerService  L593  INFO  - server disconnect, address is /127.0.0.1:55238 id
+2017-07-26 11:27:51,563 [Thread:pool-ServerMessageInitializer-1-thread-8] c.k.g.httpserver.GmtoolsHttpServer   L50   INFO  - Gmtools removeServerList 17367041
+2017-07-26 12:05:51,411 [Thread:main] i.n.u.i.l.InternalLoggerFactory      L71   DEBUG - Using SLF4J as the default logging framework
+2017-07-26 12:05:51,426 [Thread:main] i.n.util.internal.PlatformDependent0 L76   DEBUG - java.nio.Buffer.address: available
+2017-07-26 12:05:51,428 [Thread:main] i.n.util.internal.PlatformDependent0 L76   DEBUG - sun.misc.Unsafe.theUnsafe: available
+2017-07-26 12:05:51,428 [Thread:main] i.n.util.internal.PlatformDependent0 L71   DEBUG - sun.misc.Unsafe.copyMemory: available
+2017-07-26 12:05:51,429 [Thread:main] i.n.util.internal.PlatformDependent0 L76   DEBUG - java.nio.Bits.unaligned: true
+2017-07-26 12:05:51,430 [Thread:main] i.n.util.internal.PlatformDependent  L71   DEBUG - Platform: Windows
+2017-07-26 12:05:51,431 [Thread:main] i.n.util.internal.PlatformDependent  L76   DEBUG - Java version: 8
+2017-07-26 12:05:51,432 [Thread:main] i.n.util.internal.PlatformDependent  L76   DEBUG - -Dio.netty.noUnsafe: false
+2017-07-26 12:05:51,433 [Thread:main] i.n.util.internal.PlatformDependent  L76   DEBUG - sun.misc.Unsafe: available
+2017-07-26 12:05:51,433 [Thread:main] i.n.util.internal.PlatformDependent  L76   DEBUG - -Dio.netty.noJavassist: false
+2017-07-26 12:05:51,434 [Thread:main] i.n.util.internal.PlatformDependent  L71   DEBUG - Javassist: unavailable
+2017-07-26 12:05:51,434 [Thread:main] i.n.util.internal.PlatformDependent  L71   DEBUG - You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance.
+2017-07-26 12:05:51,435 [Thread:main] i.n.util.internal.PlatformDependent  L76   DEBUG - -Dio.netty.tmpdir: C:\Users\ADMINI~1\AppData\Local\Temp (java.io.tmpdir)
+2017-07-26 12:05:51,435 [Thread:main] i.n.util.internal.PlatformDependent  L76   DEBUG - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2017-07-26 12:05:51,436 [Thread:main] i.n.util.internal.PlatformDependent  L76   DEBUG - -Dio.netty.noPreferDirect: false
+2017-07-26 12:05:51,446 [Thread:main] i.n.c.MultithreadEventLoopGroup      L76   DEBUG - -Dio.netty.eventLoopThreads: 8
+2017-07-26 12:05:51,466 [Thread:main] io.netty.channel.nio.NioEventLoop    L76   DEBUG - -Dio.netty.noKeySetOptimization: false
+2017-07-26 12:05:51,466 [Thread:main] io.netty.channel.nio.NioEventLoop    L76   DEBUG - -Dio.netty.selectorAutoRebuildThreshold: 512
+2017-07-26 12:05:51,500 [Thread:main] c.k.c.core.net.server.SimpleServer   L35   INFO  - Success to initialize SimpleServer!
+2017-07-26 12:05:51,501 [Thread:main] c.k.m.start.NetInitializer           L47   INFO  - Begin to open port:13100 for Server
+2017-07-26 12:05:51,510 [Thread:main] i.n.util.internal.ThreadLocalRandom  L71   DEBUG - -Dio.netty.initialSeedUniquifier: 0x981ba0a6341e741d (took 3 ms)
+2017-07-26 12:05:51,560 [Thread:main] io.netty.buffer.ByteBufUtil          L76   DEBUG - -Dio.netty.allocator.type: unpooled
+2017-07-26 12:05:51,560 [Thread:main] io.netty.buffer.ByteBufUtil          L76   DEBUG - -Dio.netty.threadLocalDirectBufferSize: 65536
+2017-07-26 12:05:51,560 [Thread:main] io.netty.buffer.ByteBufUtil          L76   DEBUG - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2017-07-26 12:05:51,571 [Thread:main] io.netty.util.NetUtil                L86   DEBUG - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+2017-07-26 12:05:51,572 [Thread:main] io.netty.util.NetUtil                L81   DEBUG - \proc\sys\net\core\somaxconn: 200 (non-existent)
+2017-07-26 12:05:51,609 [Thread:main] c.kodgames.manageserver.ManageServer L36   INFO  - ManageServer is ready!!!
+2017-07-26 12:05:51,609 [Thread:main] c.k.gmtools.handler.GmtoolsHandler   L35   INFO  - GmtoolsHandler init {AddInterfaceIp=com.kodgames.manageserver.service.gmtools.AddInterfaceIp@3e2e18f2, ServerStatus=com.kodgames.manageserver.service.gmtools.ServerStatusHandler@470f1802}
+2017-07-26 12:05:51,929 [Thread:main] c.k.corgi.httpserver.HttpServer      L58   INFO  - start HttpServer...
+2017-07-26 12:05:51,933 [Thread:main] c.k.g.httpserver.GmtoolsHttpServer   L32   INFO  - Gmtools Start On Port 13101
+2017-07-26 12:05:52,352 [Thread:main] c.k.corgi.httpserver.HttpServer      L58   INFO  - start HttpServer...
+2017-07-26 12:05:52,356 [Thread:main] c.k.m.start.PurchaseController       L23   INFO  - PurchaseController : start purchase! port=23900
+2017-07-26 12:05:53,066 [Thread:main] c.k.corgi.httpserver.HttpServer      L58   INFO  - start HttpServer...
+2017-07-26 12:05:53,070 [Thread:main] c.k.m.start.AgentPurchaseController  L24   INFO  - AgentPurchaseController : start agentPurchase! port=0
+2017-07-26 12:06:17,787 [Thread:nioEventLoopGroup-3-1] c.k.c.c.n.h.netty.MessageProcessor   L361  DEBUG - Active  connectionID:10001
+2017-07-26 12:06:17,801 [Thread:pool-ServerMessageInitializer-1-thread-1] io.netty.util.Recycler               L76   DEBUG - -Dio.netty.recycler.maxCapacity.default: 262144
+2017-07-26 12:06:17,803 [Thread:pool-ServerMessageInitializer-1-thread-1] c.k.m.n.servers.SSConnectionHandler  L29   INFO  - Connection active. Remote Server Address:/127.0.0.1:57110
+2017-07-26 12:06:17,810 [Thread:nioEventLoopGroup-3-1] io.netty.buffer.AbstractByteBuf      L81   DEBUG - -Dio.netty.buffer.bytebuf.checkAccessible: true
+2017-07-26 12:06:17,811 [Thread:nioEventLoopGroup-3-1] io.netty.util.ResourceLeakDetector   L81   DEBUG - -Dio.netty.leakDetection.level: simple
+2017-07-26 12:06:17,812 [Thread:nioEventLoopGroup-3-1] io.netty.util.ResourceLeakDetector   L81   DEBUG - -Dio.netty.leakDetection.maxRecords: 4
+2017-07-26 12:06:17,816 [Thread:nioEventLoopGroup-3-1] io.netty.util.internal.Cleaner0      L76   DEBUG - java.nio.ByteBuffer.cleaner(): available
+2017-07-26 12:06:17,817 [Thread:nioEventLoopGroup-3-1] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393223:60007, ip address /127.0.0.1:57110, connectionid 10001 connection 1296062123 len 2 sendAmount 1
+2017-07-26 12:06:17,831 [Thread:nioEventLoopGroup-3-1] c.k.c.c.n.h.netty.MessageProcessor   L224  DEBUG - read: protocol id is 393217:60001, ip address /127.0.0.1:57110, connectionid 10001 len 21 recvAmount 1
+2017-07-26 12:06:17,859 [Thread:pool-ServerMessageInitializer-1-thread-2] c.k.m.service.servers.ServerService  L166  INFO  - build launch info ip is 127.0.0.1 type 1
+2017-07-26 12:06:17,873 [Thread:nioEventLoopGroup-3-1] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393218:60002, ip address /127.0.0.1:57110, connectionid 10001 connection 1296062123 len 84 sendAmount 2
+2017-07-26 12:06:17,877 [Thread:nioEventLoopGroup-3-1] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393220:60004, ip address /127.0.0.1:57110, connectionid 10001 connection 1296062123 len 0 sendAmount 3
+2017-07-26 12:06:25,685 [Thread:nioEventLoopGroup-3-2] c.k.c.c.n.h.netty.MessageProcessor   L361  DEBUG - Active  connectionID:10002
+2017-07-26 12:06:25,688 [Thread:pool-ServerMessageInitializer-1-thread-3] c.k.m.n.servers.SSConnectionHandler  L29   INFO  - Connection active. Remote Server Address:/127.0.0.1:57154
+2017-07-26 12:06:25,690 [Thread:nioEventLoopGroup-3-2] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393223:60007, ip address /127.0.0.1:57154, connectionid 10002 connection 468159815 len 2 sendAmount 1
+2017-07-26 12:06:25,738 [Thread:nioEventLoopGroup-3-2] c.k.c.c.n.h.netty.MessageProcessor   L224  DEBUG - read: protocol id is 393217:60001, ip address /127.0.0.1:57154, connectionid 10002 len 21 recvAmount 1
+2017-07-26 12:06:25,739 [Thread:pool-ServerMessageInitializer-1-thread-4] c.k.m.service.servers.ServerService  L166  INFO  - build launch info ip is 127.0.0.1 type 9
+2017-07-26 12:06:25,741 [Thread:nioEventLoopGroup-3-2] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393218:60002, ip address /127.0.0.1:57154, connectionid 10002 connection 468159815 len 120 sendAmount 2
+2017-07-26 12:06:25,742 [Thread:nioEventLoopGroup-3-2] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393220:60004, ip address /127.0.0.1:57154, connectionid 10002 connection 468159815 len 0 sendAmount 3
+2017-07-26 12:06:25,864 [Thread:nioEventLoopGroup-3-2] c.k.c.c.n.h.netty.MessageProcessor   L224  DEBUG - read: protocol id is 393219:60003, ip address /127.0.0.1:57154, connectionid 10002 len 125 recvAmount 2
+2017-07-26 12:06:25,865 [Thread:pool-ServerMessageInitializer-1-thread-5] c.k.m.service.servers.ServerService  L95   INFO  - a server register, id is 17367041 , type is 2
+2017-07-26 12:06:25,866 [Thread:pool-ServerMessageInitializer-1-thread-5] c.k.g.httpserver.GmtoolsHttpServer   L45   INFO  - Gmtools addServerList 17367041 127.0.0.1:201011
+2017-07-26 12:06:25,867 [Thread:pool-ServerMessageInitializer-1-thread-5] c.k.g.httpserver.GmtoolsHttpServer   L45   INFO  - Gmtools addServerList 17367041 127.0.0.1:201011
+2017-07-26 12:06:25,869 [Thread:nioEventLoopGroup-3-2] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393220:60004, ip address /127.0.0.1:57154, connectionid 10002 connection 468159815 len 116 sendAmount 4
+2017-07-26 12:06:25,869 [Thread:nioEventLoopGroup-3-1] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393220:60004, ip address /127.0.0.1:57110, connectionid 10001 connection 1296062123 len 116 sendAmount 4
+2017-07-26 12:06:31,521 [Thread:nioEventLoopGroup-3-2] c.k.c.c.n.h.netty.MessageProcessor   L387  DEBUG - exceptionCaught--Remote Peer:/127.0.0.1:57154 java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+2017-07-26 12:06:31,526 [Thread:nioEventLoopGroup-3-2] c.k.c.core.session.ConnectionManager L123  DEBUG - Remove connectionid:10002 
+2017-07-26 12:06:31,526 [Thread:nioEventLoopGroup-3-2] c.k.c.c.n.h.netty.MessageProcessor   L377  DEBUG - Inactive connetionID:10002
+2017-07-26 12:06:31,534 [Thread:pool-ServerMessageInitializer-1-thread-6] c.k.m.n.servers.SSConnectionHandler  L34   INFO  - Connection inactive. Remote Server Address:/127.0.0.1:57154 id 10002
+2017-07-26 12:06:31,535 [Thread:pool-ServerMessageInitializer-1-thread-6] c.k.m.service.servers.ServerService  L593  INFO  - server disconnect, address is /127.0.0.1:57154 id
+2017-07-26 12:06:31,537 [Thread:pool-ServerMessageInitializer-1-thread-6] c.k.g.httpserver.GmtoolsHttpServer   L50   INFO  - Gmtools removeServerList 17367041
+2017-07-26 12:06:31,537 [Thread:nioEventLoopGroup-3-1] c.k.c.c.n.h.netty.MessageProcessor   L312  DEBUG - write: protocol id is 393221:60005, ip address /127.0.0.1:57110, connectionid 10001 connection 1296062123 len 5 sendAmount 5
+2017-07-26 12:06:33,415 [Thread:nioEventLoopGroup-3-1] c.k.c.c.n.h.netty.MessageProcessor   L387  DEBUG - exceptionCaught--Remote Peer:/127.0.0.1:57110 java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+2017-07-26 12:06:33,415 [Thread:nioEventLoopGroup-3-1] c.k.c.core.session.ConnectionManager L123  DEBUG - Remove connectionid:10001 
+2017-07-26 12:06:33,416 [Thread:nioEventLoopGroup-3-1] c.k.c.c.n.h.netty.MessageProcessor   L377  DEBUG - Inactive connetionID:10001
+2017-07-26 12:06:33,437 [Thread:pool-ServerMessageInitializer-1-thread-7] c.k.m.n.servers.SSConnectionHandler  L34   INFO  - Connection inactive. Remote Server Address:/127.0.0.1:57110 id 10001
+2017-07-26 12:06:33,437 [Thread:pool-ServerMessageInitializer-1-thread-7] c.k.m.service.servers.ServerService  L593  INFO  - server disconnect, address is /127.0.0.1:57110 id
+2017-07-26 12:06:33,437 [Thread:pool-ServerMessageInitializer-1-thread-7] c.k.g.httpserver.GmtoolsHttpServer   L50   INFO  - Gmtools removeServerList 16842753

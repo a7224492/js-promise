@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IPSelectConfig isOpen="true" defaultGroupName="default">
+    <!--chaoshan_security_group01 = 6f432557f41b9dcff113f26a13de09fe-->
+    <!-- 当天新注册, 局数 < 8, 潮汕 -->
+    <IPGroup name="6f432557f41b9dcff113f26a13de09fe" isActive="true">
+        <GroupCondition type="REGISTER" compareType="LESS" intMinValue="0" intMaxValue="0" strValue="" />
+    </IPGroup>
+</IPSelectConfig>

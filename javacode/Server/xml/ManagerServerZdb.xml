@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="mahjong.manager" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<zdb>	
+		<xbean name="ServerInfo">
+			<variable name="id"                   	type="int"/>
+			<variable name="type"                 	type="int"/>
+			<variable name="ip"                   	type="string"/><!-- 局域网ip -->
+			<variable name="port4server"          	type="int"/>
+			<variable name="port4webSocketClient" 	type="int"/>
+			<variable name="port4SocketClient"    	type="int"/>
+			<variable name="ip4Client"            	type="string"/><!-- 对公网ip -->
+		</xbean>
+		<xbean name="IntValue">
+			<variable name="id" type="int"/>
+		</xbean>
+		<table name="server_info" key="int" value="ServerInfo" persistence="MEMORY" />
+		<table name="server_id"   key="int" value="IntValue" />
+
+		<xbean name="PortBase">
+			<variable name="ip"          type="string"/>
+			<variable name="serverType"  type="int"/>
+			<variable name="portType"    type="int"/>
+			<variable name="area"		 type="int"/>
+			<variable name="port"        type="int"/>
+		</xbean>
+
+		<table name="port_table" key="string" value="PortBase" persistence="MEMORY"/>
+	</zdb>
+</project>

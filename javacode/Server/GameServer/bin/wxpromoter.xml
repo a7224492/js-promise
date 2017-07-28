@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Purchase>
+	<!-- rewardType: 奖励类型,Cash 钞票, Diamond 钻石 -->
+	<!-- wechatPublicAccount: 公众号 -->
+	<!-- StartTime: 开始时间 -->
+	<!-- EndTime: 结束时间 -->
+    <ActivityConfig rewardType="Cash" wechatPublicAccount="aaaaaa">
+        <StartTime time="2017-04-15 10:00:00" />
+        <EndTime time="2017-05-14 23:59:59" />
+    </ActivityConfig>
+
+	<!-- gameCountForActivity: 玩家完成任务需要进行的牌局数 -->
+    <InviteeConfig gameCountForActivity="3" />
+
+	<!-- needRegisteredTime: 玩家拥有邀请资格的最小注册天数 -->
+	<!-- rewardLimitPerCycle: 玩家每个周期的最大奖励数量 -->
+	<!-- hoursPerCycle: 每个周期持续的小时数 -->
+	<!-- inviteeCount: 邀请成功的玩家数，rewardCount: 达到这一邀请数量后给玩家奖励的数量 -->
+    <PromoterConfig needRegisteredTime="5" rewardLimitPerCycle="25.0" hoursPerCycle="24">
+        <Reward inviteeCount="1" rewardCount="1.0" />
+        <Reward inviteeCount="4" rewardCount="2.0" />
+        <Reward inviteeCount="7" rewardCount="3.0" />
+        <Reward inviteeCount="10" rewardCount="4.0" />
+        <Reward inviteeCount="15" rewardCount="5.0" />
+        <Reward inviteeCount="20" rewardCount="10.0" />
+    </PromoterConfig>
+
+	<!-- gmWeinxin: 客户端微信号 -->
+	<!-- minGet: 每天可以领取的最小数量 -->
+	<!-- maxGet: 每天可以领取的最大数量 -->
+	<!-- maxCount: 每天最多领取的次数 -->
+    <GetRewardConfig gmWeixin="xxxxxx" minGet="1.0" maxGet="200.0" maxCount="3" />
+</Purchase>

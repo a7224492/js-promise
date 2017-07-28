@@ -1,0 +1,14 @@
+package com.kodgames.message.proto.record;
+option java_outer_classname = "RecordProtoBuf";
+
+message BGRecordLogSYN							// Battle 向 Game 同步牌局记录
+{
+	required int32 roomID = 1;					// 房间ID
+	required int64 roomStartTime = 2;			// 房间开始时间
+	required int32 roomType = 3;				// 房间类型
+	repeated int32 playerIDs = 4;				// 玩家ID列表
+	required int32 ownerID = 5;					// 房主ID
+	required bool isFinished = 6;				// 所有牌局结束
+	required int64 roundRecordStartTime = 7;	// 当前局开始时间
+	required int32 currRoundCount = 8;			// 当前已结束局数
+}

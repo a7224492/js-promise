@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     2014年12月19日 上午11:36:17                                                        
+
+     Test    
+     description
+                   
+     Administrator                                                                
+     ====================================================================== -->
+<project name="Test" default="default" basedir=".">
+    <description>
+            this is the demo
+    </description>
+
+	<property environment="env" />
+	<property name="java.lib.dir" value="${env.JAVA_HOME}/lib" />
+	
+	<!-- 主要的jar属性-->
+	<property name="app.name" value="ManageServer"></property>
+	<property name="app.jar" value="${app.name}.jar"></property>
+	
+	<!-- 主要的src属性-->
+	<property name="src.dir" value="src"></property>
+	<property name="gen.dir" value="gen"></property>
+
+	<!-- 第三方的jar-->
+	<property name="jar_third.dir" value="../third_lib/jar" description="第三方的jar"></property>
+	
+	<property name="message.dir" value="../Message/jar"  description="Message.jar" ></property>
+	
+	<property name="common.dir" value="../jar"  description="ServerCommon.jar" ></property>
+	
+	
+	<!-- build的目录结构-->
+	<property name="build.dir" value="build"></property>
+	<property name="build.classes" value="${build.dir}/classes"></property>
+	<property name="build.docs" value="${build.dir}/docs"></property>
+	<property name="build.docs.api" value="${build.docs}/api"></property>
+	<property name="build.jar" value="../jar" description="存放生成的jar"></property>
+	
+	
+	<!-- 调用第三方的jar，通过设置ID，来重用这组路径-->
+	
+	<path id="project.classpath">
+		<fileset dir="${jar_third.dir}">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${java.lib.dir}">
+			<include name="tools.jar" />
+		</fileset>
+		
+		<fileset dir="${common.dir}">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+	
+	
+	<target name="clean">
+		<delete dir="${build.dir}" failonerror="false"></delete>
+	</target>
+	
+	<target name="init" depends="clean">
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${build.classes}"/>
+		<mkdir dir="${build.docs}"/>
+		<mkdir dir="${build.docs.api}"/>
+		<mkdir dir="${build.jar}"/>
+		
+		<!--
+		<mkdir dir="${dist.dir}"/>
+		<mkdir dir="${dist.bin}"/>
+		<mkdir dir="${dist.docs}"/>
+		<mkdir dir="${dist.lib}"/>
+		-->
+	</target>
+	
+	<!-- 编译源代码 -->
+	<target name="compile" depends="init">
+		<javac destdir="${build.classes}" includeAntRuntime="false" debug="true">
+			<src path="${src.dir}" />
+			<src path="${gen.dir}" />
+			<compilerarg line="-encoding UTF-8 "/> 
+			<classpath refid="project.classpath"></classpath>
+		</javac>
+		<copy todir="${build.classes}">
+			<fileset dir="${src.dir}">
+				<exclude name="**/*.java"/>
+			</fileset>
+			<fileset dir="${gen.dir}">
+				<exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+		<echo message="将所有的class及${src}目录下的所有的非java的文件,一起打包成jar文件.不包括resource目录下的文件."></echo>
+	</target>
+	
+	<!-- 打包项目代码-->
+	<target name="build" depends="compile">
+		<jar jarfile="${build.jar}/${app.jar}" basedir="${build.classes}" compress="true"></jar>
+	</target>
+	
+		
+    
+  <target name="endclean" depends="build">
+		<delete dir="${build.dir}" failonerror="false"></delete>
+	</target>
+	
+		
+    
+    <target name="default" depends="endclean" description="description">
+       
+    </target>
+	
+	
+	
+
+	
+</project>

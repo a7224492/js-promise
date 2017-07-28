@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ClubServer" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<zdb>
+		<xbean name="ClubInfo" > <!-- 俱乐部信息 -->
+			<variable name="clubId" type="int" />					<!-- 俱乐部ID -->
+			<variable name="clubName" type="string" /> 				<!-- 俱乐部名称 -->
+			<variable name="notice" type="string" />				<!-- 俱乐部公告 -->
+			<variable name="noticeTime" type="long" />				<!-- 公告修改时间 -->
+			<variable name="createTimestamp" type="long" />			<!-- 俱乐部创建时间 -->
+			<variable name="creator" type="ClubRoleBaseInfo" />		<!-- 创建者 -->
+			<variable name="manager" type="ClubRoleBaseInfo" />		<!-- 管理者 -->
+			<variable name="level" type="int" />					<!-- 俱乐部等级，现在应该没用，先留着备用 -->
+			<variable name="gameCount" type="long" />				<!-- 俱乐部总局数 -->
+			<variable name="todayGameCount" type="long" />			<!-- 今天的俱乐部总局数 -->
+			<variable name="todayClearTime" type="long" />			<!-- 上次清除今天数据的时间 -->
+			<variable name="roomCost" type="RoomCost" />			<!-- 房间消耗 -->
+			<variable name="members" type="vector" value="MemberInfo" />		<!-- 成员列表 -->
+			<variable name="applicants" type="vector" value="ApplicantInfo" />	<!-- 申请列表 -->
+			<variable name="status" type="int" />					<!-- 状态，是否冻结，是否封停等 -->
+			<variable name="agentId" type="int" />					<!-- 代理商id -->
+			<variable name="memberCount" type="int" />				<!-- 当前实际在俱乐部的人数 -->
+		</xbean>
+		
+		<xbean name="ClubRoleBaseInfo" > <!-- 玩家基础信息 -->
+			<variable name="roleId" type="int" />					<!-- 用户id -->
+			<variable name="name" type="string" />					<!-- 用户姓名，目前改微信名字不会修改游戏名，所以在这里存一份，
+			减少查user库的次数，如果以后有改名字的需求，再做两个库直接的同步 -->
+			<variable name="title" type="int" />					<!-- 职位：1.见习会员；2.会员；3.经理 -->
+		</xbean>
+		
+		<xbean name="MemberInfo" > <!-- 会员信息 -->
+			<variable name="role" type="ClubRoleBaseInfo" /> 		<!-- 会员基础信息 -->
+			<variable name="cardCount" type="int" />				<!-- 房卡数量 -->
+			<variable name="inviter" type="ClubRoleBaseInfo" />		<!-- 邀请人信息 -->
+			<variable name="joinTimestamp" type="long" />			<!-- 加入时间 -->
+			<variable name="status" type="int" />					<!-- 状态 0.已离开 1.正常 -->
+			<variable name="totalGameCount" type="int" />			<!-- 游戏局数 -->
+			<variable name="todayGameCount" type="int" />			<!-- 今天的俱乐部总局数 -->
+		</xbean>
+		
+		<xbean name="ApplicantInfo" > <!-- 申请人信息 -->
+			<variable name="role" type="ClubRoleBaseInfo" />		<!-- 申请人信息 -->
+			<variable name="inviter" type="ClubRoleBaseInfo" />		<!-- 邀请人信息 -->
+			<variable name="applyTimestamp" type="long" />			<!-- 申请时间 -->
+			<variable name="gameCount" type="int" />				<!-- 申请时游戏的局数 -->
+			<variable name="inviterIcon" type="string" />			<!-- 邀请人头像 -->
+		</xbean>
+		
+		<xbean name="RoomCost" > <!-- 房间消耗 -->
+			<variable name="cost" type="int" />						<!-- 消耗的倍数 -->
+			<variable name="payType" type="int" />					<!-- 谁掏钱 1.建房间的；2.赢的 -->
+		</xbean>
+		
+		<table name="clubs" key="int" value="ClubInfo" />			<!-- 俱乐部数据库 key=clubId -->
+		
+		<xbean name="ClubRoomInfo" > <!-- 俱乐部房间信息 -->
+			<variable name="roomId" type="int" />								<!-- 房间id，和gameServer下能对的上 -->
+			<variable name="creator" type="int" />								<!-- 房主 -->
+			<variable name="player" type="vector" value="ClubRoleBaseInfo" />	<!-- 房间用户 -->
+			<variable name="maxPlayer" type="int" />							<!-- 最大需要几个用户 -->
+			<variable name="gameplays" type="vector" value="int" />				<!-- 玩法描述 -->
+			<variable name="clubId" type="int" />								<!-- 所属的clubId, 方便反查俱乐部数据 -->
+			<variable name="enableSubCard" type="boolean" />					<!-- 结算时是否允许扣卡 -->
+			<variable name="roomCostSnap" type="RoomCost" />					<!-- 创建房间时的cost配置 -->
+			<variable name="roundCount" type="int" />							<!-- 房间圈/局规则 -->
+			<variable name="battleId" type="int" />								<!-- 战斗服的id -->
+		</xbean>
+		
+		<xbean name="ClubRooms" > <!-- 俱乐部房间列表 -->
+			<variable name="rooms" type="map" key="int" value="ClubRoomInfo" />		<!-- 俱乐部房间列表 -->
+		</xbean>
+		
+		<table name="club_room_info" key="int" value="ClubRooms" cacheCapacity="100000" persistence="MEMORY" />		<!-- 俱乐部房间列表 key=clubId -->
+
+		<xbean name="ClubIdSeed">
+			<variable name="seed" type="int" />
+		</xbean>
+
+		<table name="club_id_seed" key="int" value="ClubIdSeed" />
+
+		<xbean name="RoleClubInfo">
+			<variable name="clubId" type="int" /> <!-- 俱乐部ID -->
+			<variable name="invitationCode" type="string" /> <!-- 我在这个俱乐部的邀请码 由cid+uid生成 -->
+		</xbean>
+
+		<xbean name="RoleClubs" >
+			<variable name="clubs" type="vector" value="RoleClubInfo" /> <!-- 玩家加入的俱乐部 -->
+			<variable name="app_key" type="string" />
+			<variable name="version" type="string" />
+			<variable name="channel" type="string" />
+		</xbean>
+
+		<table name="role_clubs" key="int" value="RoleClubs" cacheCapacity="100000" />			<!-- 玩家俱乐部数据库 -->
+
+		<xbean name="ClubManager">
+			<variable name="firstClubId" type="int" />					<!-- 经理进的第一个俱乐部 -->
+		</xbean>
+
+		<table name="club_manager" key="int" value="ClubManager" />					<!-- 经理表，如果在经理表里，就说明他是经理，value设为简历的第一个俱乐部的id -->
+
+		<xbean name="ClubAgent" >
+			<variable name="clubs" type="vector" value="int" />			<!-- 代理商创建的俱乐部列表 -->
+		</xbean>
+
+		<table name="club_agent" key="int" value="ClubAgent" />			<!-- 代理商表，记录代理商创建的俱乐部 -->
+	</zdb>
+</project>

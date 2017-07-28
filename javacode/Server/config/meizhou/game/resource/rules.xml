@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Rule>
+	<Global>
+	</Global>
+	<Region name="com.kodgames.battleserver.service.battle.region.meizhou.common.creator.BattleCreator_MeiZhou">
+		<Room>
+			<RoomType>
+				<RoomTypeItem type="1" roundCount="0" gameCount="8"
+					cardCount="3" aaCardCount="1" />
+				<RoomTypeItem type="2" roundCount="0" gameCount="16"
+					cardCount="6" aaCardCount="2" />
+			</RoomType>
+		</Room>
+	</Region>
+</Rule>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="ClubAnt" default="dist">
+
+    <property name="src" value="src/"/>
+    <property name="gen" value="gen/"/>
+    <property name="build" value="bin/"/>
+    <property name="jarfile" value="../bin/club.jar"/>
+
+
+    <target name="xmlgen">
+        <java jar="../third_lib/jar/zdb.jar" fork="yes" append="yes">
+            <arg value="xmlgen"/>
+            <arg value="-java"/>
+            <arg value="-sizepolicyxml"/>
+            <arg value="../xml/ClubServerZdb.xml"/>
+        </java>
+    </target>
+
+    <target name="init" depends="xmlgen">
+        <mkdir dir="${build}"/>
+    </target>
+
+    <target name="dist" depends="init">
+        <jar jarfile="${jarfile}" basedir="${build}" manifest="${src}/MANIFEST.MF"/>
+    </target>
+
+    <target name="all" depends="clean, dist"/>
+
+    <target name="clean">
+        <delete dir="${build}"/>
+        <delete dir="${gen}"/>
+        <delete file="${jarfile}"/>
+    </target>
+
+    <target name="run">
+        <java jar="${jarfile}" fork="true" spawn="true"/>
+    </target>
+
+</project>

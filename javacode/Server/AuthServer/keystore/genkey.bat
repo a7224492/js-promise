@@ -1,0 +1,1 @@
+call keycmd -gen localhost
