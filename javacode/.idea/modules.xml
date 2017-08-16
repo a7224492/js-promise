@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Json/Json.iml" filepath="$PROJECT_DIR$/Json/Json.iml" />
       <module fileurl="file://$PROJECT_DIR$/MybatisCode/MybatisCode.iml" filepath="$PROJECT_DIR$/MybatisCode/MybatisCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/RedisCode/RedisCode.iml" filepath="$PROJECT_DIR$/RedisCode/RedisCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Xml/Xml.iml" filepath="$PROJECT_DIR$/Xml/Xml.iml" />
       <module fileurl="file://$PROJECT_DIR$/algorithm/algorithm.iml" filepath="$PROJECT_DIR$/algorithm/algorithm.iml" />
       <module fileurl="file://$PROJECT_DIR$/javacode.iml" filepath="$PROJECT_DIR$/javacode.iml" />
       <module fileurl="file://$PROJECT_DIR$/nettyexample/nettyexample.iml" filepath="$PROJECT_DIR$/nettyexample/nettyexample.iml" />

@@ -12,6 +12,7 @@
         <module name="nettyexample" />
         <module name="RedisCode" />
         <module name="turntableactivity" />
+        <module name="Xml" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -22,6 +23,7 @@
       <module name="nettyexample" target="1.5" />
       <module name="RedisCode" target="1.5" />
       <module name="turntableactivity" target="1.5" />
+      <module name="Xml" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
