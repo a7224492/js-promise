@@ -1,8 +1,0 @@
-﻿#地区config名称
-region=chaoshan
-
-#打更新包时需要添加的配置文件（文件填写相对deploy文件夹的相对路径，分号隔开，例如：club;game/sql/create_club.sql，没有填null）
-add_config_files=null
-
-# 打包的region包路径
-src=src/com/kodgames/battleserver/service/battle/region/yangzhou

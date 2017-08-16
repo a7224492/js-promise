@@ -1,3 +1,0 @@
-#!/bin/sh
-
-protoc --proto_path=./ --java_out=../Message/src ./protobuf/*.proto

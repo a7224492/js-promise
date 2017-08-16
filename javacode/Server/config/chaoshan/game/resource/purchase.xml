@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Purchase>
-    <PurchaseItem goodId="mahjong.billing.chaoshan001" roomCardCount = "1"/>
-    <PurchaseItem goodId="mahjong.billing.chaoshan003" roomCardCount = "3"/>
-    <PurchaseItem goodId="mahjong.billing.chaoshan030" roomCardCount = "30"/>
-</Purchase>
