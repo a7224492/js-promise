@@ -1,19 +1,24 @@
 package com.mycode;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.protobuf.ByteString;
 import net.sf.json.JSONObject;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
  * Created by jiangzhen on 2017/8/9
  */
-public class json
-{
+public class json {
 	private static final long DAY = 1000*3600*24;
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) throws IOException {
+		System.out.println(Arrays.toString(ByteString.copyFromUtf8("\031\001\t\b\036").toByteArray()));
+	}
+
+	private static void testJsonFromObject() {
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		Map<String, Object> timeMap = new HashMap<String, Object>();
@@ -51,5 +56,39 @@ public class json
 		Calendar cal = Calendar.getInstance(Locale.CHINA);
 		cal.setTimeInMillis(timestamp);
 		return new SimpleDateFormat(formatStr).format(cal.getTimeInMillis());
+	}
+
+	private static long testCostOfJson2Object() throws IOException {
+		String json = "{\"eventConfig\":[23134209,17891329],\"activityId\":300001,\"statusConfig\":true,\"timeConfig\":{\"startTime\":\"2018-02-04 18:44:55\",\"endTime\":\"2018-02-06 18:44:55\"}}";
+		ObjectMapper mapper = new ObjectMapper();
+
+		Student stu = new Student("jiangzhen");
+
+		long before = System.currentTimeMillis();
+		for (int i = 0; i < 10000; ++i) {
+			Map<String, Object> map = (Map<String, Object>)mapper.readValue(json, Map.class);
+			stu.getName();
+		}
+
+		long cost = System.currentTimeMillis()-before;
+		System.out.println(cost);
+
+		return 0;
+	}
+
+	private static class Student {
+		private String name;
+
+		public Student(String name) {
+			this.name = name;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
 	}
 }
