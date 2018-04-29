@@ -1,71 +1,39 @@
 package com.mycode;
 
+import com.mycode.service.IMahjongTurnTable;
+
 import java.util.List;
+import java.util.Map;
 
 /**
- * Created by jz on 2017/7/13.
+ * Created by Administrator on 2017/7/24.
  */
-public class MahjongTurnTable extends AbstractTurnTable<Integer, Integer> implements IMahjongTurntable{
-
+public class MahjongTurnTable extends AbstractTurnTable<Integer, Integer> implements IMahjongTurnTable {
     public MahjongTurnTable(long startTime, long endTime) {
         super(startTime, endTime);
     }
 
-    public boolean canDrawRewards(Integer integer) {
-        return false;
+    protected Map<Integer, TurnTableConfig.RewardRatioRange> rewardRatioRange(int rewardId) {
+        return null;
     }
 
     protected Integer buildReward(int rewardId) {
         return null;
     }
 
-    protected void subRewardLeftCount(int rewardId, long now) {
-
-    }
-
-    protected void broadCastReward() {
-
-    }
-
-    protected void addPlayerCard(Integer integer, int rewardId) {
-
-    }
-
-    protected boolean isCardReward(int rewardId) {
-        return false;
-    }
-
-    protected void recordPlayerDrawSuccess(Integer integer, int rewardId) {
-
-    }
-
     public List<Integer> queryRewards(Integer integer) {
         return null;
     }
 
-    protected boolean hasNoRewardLeftCount(int rewardId, long time) {
+    public boolean canDraw(int roleId) {
         return false;
     }
 
-    protected Integer playerDrawFails() {
-        return null;
+    public boolean isRightRewardId(int rewardId) {
+        return false;
     }
 
-    protected void playerSubItemCount() {
-
-    }
-
-    protected int playerItemCount(Integer integer) {
+    public int freeRewardId() {
         return 0;
-    }
-
-    public boolean canDraw(int roleId) {
-        // 得到玩家当前的抽奖次数
-        int itemCount = playerItemCount(roleId);
-        if (itemCount > 0) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }

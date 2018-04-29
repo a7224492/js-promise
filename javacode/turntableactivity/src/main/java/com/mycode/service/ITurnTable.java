@@ -1,4 +1,4 @@
-package com.mycode;
+package com.mycode.service;
 
 import com.mycode.activity.IActivity;
 
@@ -24,4 +24,11 @@ public interface ITurnTable<P, R> extends IActivity {
 	 * @return
 	 */
 	public R drawRewards(P p);
+
+	/**
+	 * 带回调的抽奖方法
+	 * @param handler
+	 * @return
+	 */
+	public R drawRewards(P p, IDrawHandler<P, R> handler);
 }

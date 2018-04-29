@@ -7,16 +7,32 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="algorithm" />
+        <module name="CardGame" />
+        <module name="Concurrent" />
+        <module name="Json" />
+        <module name="KodGameTool" />
+        <module name="MybatisCode" />
         <module name="nettyexample" />
-        <module name="turntableactivity" />
+        <module name="RedisCode" />
+        <module name="StateMachine" />
+        <module name="Time" />
+        <module name="Xml" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="algorithm" target="1.5" />
+      <module name="CardGame" target="1.5" />
+      <module name="Concurrent" target="1.5" />
       <module name="javacode" target="1.5" />
+      <module name="Json" target="1.5" />
+      <module name="KodGameTool" target="1.8" />
+      <module name="MybatisCode" target="1.5" />
       <module name="nettyexample" target="1.5" />
-      <module name="test" target="1.5" />
+      <module name="RedisCode" target="1.5" />
+      <module name="StateMachine" target="1.5" />
+      <module name="Time" target="1.5" />
       <module name="turntableactivity" target="1.5" />
+      <module name="Xml" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

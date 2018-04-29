@@ -1,7 +1,5 @@
 package com.mycode.activity;
 
-import com.mycode.activity.IActivity;
-
 public class DefaultActivity implements IActivity{
 	
 	private long startTime, endTime;
