@@ -1,6 +1,8 @@
 package com.protocol;
 
 import com.kodgames.message.generaor.Main;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -16,12 +18,16 @@ import java.util.stream.Collectors;
  * Created by jz on 2018/4/29.
  */
 public class ProtocolGeneratorHelper {
-    private static final String PROTOCOL_DESC_FILE_PATH = "C:\\Users\\jz\\Desktop\\kodgame\\message\\src\\main\\resources\\ProtocolDesc.xml";
-    private static final String PROTO_GENERATOR_BAT_PATH = "C:\\Users\\jz\\Desktop\\kodgame\\message\\proto\\compile_proto_files.bat";
-    private static final String PROTO_DIR_PATH = "C:\\Users\\jz\\Desktop\\kodgame\\message\\proto\\protobuf";
+    public static final String PROTOCOL_DESC_FILE_PATH = "E:\\Users\\Administrator\\Desktop\\server_http\\message\\src\\main\\resources\\ProtocolDesc.xml";
+    private static final String PROTOCOL_FILE_PATH = "E:\\Users\\Administrator\\Desktop\\server_http\\message\\protocode\\ProtocolCode_Platform.lua";
+    private static final String PROTO_GENERATOR_BAT_DIR = "E:\\Users\\Administrator\\Desktop\\server_http\\message\\proto";
+    private static final String PROTO_GENERATOR_BAT_NAME = "compile_proto_files.bat";
+
+    private static final String CLIENT_COMMON_DIR_PATH = "E:\\Users\\Administrator\\Desktop\\Common";
+    private static final String COMMIT_BAT_PATH = "C:\\Users\\kod\\Desktop\\MyJavaCode\\javacode\\KodGameTool\\svn_commit.bat";
 
     public static void main(String[] args) throws IOException, DocumentException, InterruptedException {
-        File protoDir = new File(PROTO_DIR_PATH);
+        File protoDir = Paths.get(PROTO_GENERATOR_BAT_DIR, "protobuf").toFile();
         if (!protoDir.exists()) {
             exit(-1, "proto dir path doesn't exist!");
         }
@@ -44,9 +50,8 @@ public class ProtocolGeneratorHelper {
 
             while (br.ready()) {
                 // parse proto file
-                List<String> protoFileStringList = ProtoFile.needParse(br.readLine(), br);
-                if (protoFileStringList != null) {
-                    protoFile = ProtoFile.parse(file, protoFileStringList);
+                protoFile = ProtoFile.parseIfNeed(file, br);
+                if (protoFile != null) {
                     break;
                 }
             }
@@ -58,9 +63,8 @@ public class ProtocolGeneratorHelper {
 
             while (br.ready()) {
                 // parse proto message
-                List<String> protoMessageStringList = ProtoMessage.needParse(br.readLine(), br);
-                if (protoMessageStringList != null) {
-                    ProtoMessage protoMessage = ProtoMessage.parse(protoFile, protoMessageStringList);
+                ProtoMessage protoMessage = ProtoMessage.parseIfNeed(protoFile, br);
+                if (protoMessage != null) {
                     protoFile.addAutoGenerateProtoMessage(protoMessage);
                 }
             }
@@ -73,12 +77,13 @@ public class ProtocolGeneratorHelper {
         }
 
         // read protocol desc xml file
-		SAXReader reader = new SAXReader();
-        Document doc = reader.read(new FileInputStream(PROTOCOL_DESC_FILE_PATH));
+        Document doc = new SAXReader().read(new FileInputStream(PROTOCOL_DESC_FILE_PATH));
         Element root = doc.getRootElement();
-        List<Element> paragraphList = root.element("ParagraphCollection").elements("Paragraph");
 
+        // parse paragrah
+        List<Element> paragraphList = root.element("ParagraphCollection").elements("Paragraph");
         for (Element paragraph : paragraphList) {
+            // get paragraph start id
             int startId = 0;
             try {
                 startId = Integer.parseInt(paragraph.element("ProtocolStartID").getText());
@@ -87,12 +92,13 @@ public class ProtocolGeneratorHelper {
                 continue;
             }
 
-            List<ProtoFile> protoFiles = startId2ProtoFile.get(startId);
-            if (protoFiles == null) {
+            List<ProtoFile> startIdProtoFiles = startId2ProtoFile.get(startId);
+            if (startIdProtoFiles == null) {
                 continue;
             }
 
-            for (ProtoFile protoFile : protoFiles) {
+            // add protocol desc from proto file
+            for (ProtoFile protoFile : startIdProtoFiles) {
                 for (ProtoMessage protoMessage : protoFile.getAutoGenerateProtoMessage()) {
                     String protocolName = protoName2ProtocolName(protoMessage);
                     String protoClass = protoFile.getPackageName()+"."+protoFile.getClassName()+"."+protoMessage.getName()+protoMessage.getType();
@@ -103,10 +109,12 @@ public class ProtocolGeneratorHelper {
                         continue;
                     }
 
-                    // add protocl element
+                    // add protocol element
                     Element protocolElem = paragraph.element("ProtocolCollection").addElement("Protocol");
                     protocolElem.addAttribute(protocolName, "");
-                    protocolElem.addAttribute("PROTOCOL_CLASS", protoClass);
+                    protocolElem.addAttribute(ProtocolDesc.PROTO_CLASS_ATTR, protoClass);
+                    protocolElem.addAttribute(ProtocolDesc.IS_AUTO_GENERATE_ATTR, "true");
+                    protocolElem.addAttribute(ProtocolDesc.PROTO_NAME_ATTR, protoMessage.getName());
 
                     // add protocol code desc if need
                     if (protoMessage.getSuccessCode() != null) {
@@ -127,18 +135,46 @@ public class ProtocolGeneratorHelper {
                     }
                 }
             }
+
+            // delete protocol desc not in proto file
+            Element paragraghElem = paragraph.element("ProtocolCollection");
+            List<Element> protocolElemList = paragraghElem.elements("Protocol");
+            for (Element protocolElem : protocolElemList) {
+                ProtocolDesc protocolDesc = ProtocolDesc.create(startId, protocolElem);
+                if (!protocolDesc.isAutoGenerate()) {
+                    continue;
+                }
+
+                // if in proto files
+                boolean exist = false;
+                for (ProtoFile startIdProtoFile : startIdProtoFiles) {
+                   if (startIdProtoFile.containProtocol(protocolDesc.getName())) {
+                       exist = true;
+                       break;
+                   }
+                }
+
+                if (exist) {
+                    continue;
+                }
+
+                // proto desc doesn't exist in proto files, remove
+                paragraghElem.remove(protocolElem);
+            }
         }
 
         XMLWriter writer = new XMLWriter(new FileOutputStream(PROTOCOL_DESC_FILE_PATH), OutputFormat.createPrettyPrint());
         writer.write(doc);
 
         // exec proto generator bat
-        Process exec = Runtime.getRuntime().exec("cmd /c start "+PROTO_GENERATOR_BAT_PATH, null, new File(PROTO_GENERATOR_BAT_PATH+"\\.."));
+        Process exec = Runtime.getRuntime().exec("cmd /c start "+Paths.get(PROTO_GENERATOR_BAT_DIR, PROTO_GENERATOR_BAT_NAME), null, new File(PROTO_GENERATOR_BAT_DIR));
         exec.waitFor();
-        killProcess();
 
         // exec protocol generator
         Main.main(null);
+
+        // copy and commit protocol files
+        copyAndCommitProtocolFiles();
     }
 
     private static void exit(int code, String msg) {
@@ -170,5 +206,38 @@ public class ProtocolGeneratorHelper {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void copyAndCommitProtocolFiles()
+        throws IOException, InterruptedException
+    {
+        // copy proto files
+        Files.walkFileTree(Paths.get(PROTO_GENERATOR_BAT_DIR, "protobuf"), new SimpleFileVisitor<Path>()
+        {
+            @Override
+            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs)
+                throws IOException
+            {
+                Files.copy(file, Paths.get(CLIENT_COMMON_DIR_PATH, "platform_jar","proto", file.getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
+                return FileVisitResult.CONTINUE;
+            }
+        });
+
+        // copy protocol files
+        Files.walkFileTree(Paths.get(PROTO_GENERATOR_BAT_DIR, "pb"), new SimpleFileVisitor<Path>(){
+            @Override
+            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                Files.copy(file, Paths.get(CLIENT_COMMON_DIR_PATH, "Protocols", "pb", file.getFileName().toString()), StandardCopyOption.REPLACE_EXISTING);
+                return FileVisitResult.CONTINUE;
+            }
+        });
+
+        // copy protocol desc file
+        Files.copy(Paths.get(PROTOCOL_FILE_PATH), Paths.get(CLIENT_COMMON_DIR_PATH, "platform_jar", "protocode", "ProtocolCode_Platform.lua"), StandardCopyOption.REPLACE_EXISTING);
+
+        // commit all to svn
+        Files.copy(Paths.get(COMMIT_BAT_PATH), Paths.get(CLIENT_COMMON_DIR_PATH, "commit.bat"), StandardCopyOption.REPLACE_EXISTING);
+        Process exec = Runtime.getRuntime().exec("cmd /c start " + Paths.get(CLIENT_COMMON_DIR_PATH, "commit.bat"), null, new File(CLIENT_COMMON_DIR_PATH));
+        exec.waitFor();
     }
 }

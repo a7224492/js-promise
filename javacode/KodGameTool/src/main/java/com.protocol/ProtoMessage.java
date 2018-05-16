@@ -26,7 +26,17 @@ public class ProtoMessage {
         return type;
     }
 
-    static List<String> needParse(String line, BufferedReader br) throws IOException {
+    static ProtoMessage parseIfNeed(ProtoFile protoFile, BufferedReader br) throws IOException {
+        List<String> parseLineList = needParse(br);
+        if (parseLineList != null) {
+            return parse(protoFile, parseLineList);
+        }
+
+        return null;
+    }
+
+    static List<String> needParse(BufferedReader br) throws IOException {
+        String line = br.readLine();
         if (!line.trim().startsWith("//@auto_generator")) {
             return null;
         }

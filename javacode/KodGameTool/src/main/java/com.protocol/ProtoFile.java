@@ -36,7 +36,17 @@ class ProtoFile {
         protoClass2StartId.put("RoomProtoBuf", 30001);
     }
 
-    static List<String> needParse(String line, BufferedReader br) throws IOException {
+    static ProtoFile parseIfNeed(File file, BufferedReader br) throws IOException {
+        List<String> parseLineList = needParse(br);
+        if (parseLineList != null) {
+            return parse(file, parseLineList);
+        }
+
+        return null;
+    }
+
+    static List<String> needParse(BufferedReader br) throws IOException {
+        String line = br.readLine();
         if (!line.trim().startsWith("package")) {
             return null;
         }
@@ -61,6 +71,10 @@ class ProtoFile {
 
         protoFile.startId = protoClass2StartId.get(protoFile.className);
         return protoFile;
+    }
+
+    public boolean containProtocol(String protoName) {
+        return unmodifiedAutoGenerateProtoMessage.stream().map(ProtoMessage::getName).filter(name -> name.equals(protoName)).findFirst().orElse(null) != null;
     }
 
     public void addAutoGenerateProtoMessage(ProtoMessage protoMessage) {
