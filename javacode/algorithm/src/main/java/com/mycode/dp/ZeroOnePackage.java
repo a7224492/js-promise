@@ -1,23 +1,15 @@
 package com.mycode.dp;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by jiangzhen
  */
 public class ZeroOnePackage {
-    private static Item NULL_ITEM = new Item(0, 0);
-
-    /**
-     * 解决一个问题后，背包里所有的物品
-     */
-    private List<Item> packageItemList = new ArrayList<>();
-    private List<Item> unmodifiedPackItemList = Collections.unmodifiableList(packageItemList);
-
-    /**
-     * 最大收益
-     */
-    private int maxEarning = 0;
+    private MemoPackage result;
 
     /**
      * 解决一个0-1背包问题
@@ -30,47 +22,57 @@ public class ZeroOnePackage {
             return;
         }
 
-        Set<Item> remainItemList = new HashSet<>(itemList);     // 每次选出一个物品后，剩下的那些物品
-        KodPackage[] loopPackage = new KodPackage[packageWeight + 1];
-        loopPackage[0] = new KodPackage(0, 0, 0);
+        MemoPackage[] memoPackage = new MemoPackage[itemList.size() + 1];
+        memoPackage[0] = new MemoPackage(0, 0, 0);
 
-        for (int loopPackageWeight = 1; loopPackageWeight <= packageWeight; ++loopPackageWeight) {
-            KodPackage kodPackage = new KodPackage(loopPackageWeight);
-            KodPackage preKodPackage = loopPackage[loopPackageWeight - 1];
-            kodPackage.itemList.addAll(preKodPackage.itemList);
+        for (int currItemNum = 1; currItemNum < itemList.size(); ++currItemNum) {
+            Item currItem = itemList.get(currItemNum - 1);
+            MemoPackage currMemoPackage = new MemoPackage(packageWeight);
+            MemoPackage preMemoPackage = memoPackage[currItemNum - 1];
+            currMemoPackage.itemList.addAll(preMemoPackage.itemList);
 
-            // 从剩下的物品列表中选出既能放到背包，收益又最大的物品
-            Optional<Item> maxItem = remainItemList.stream()
-                    .filter(item -> (item.getWeight() + preKodPackage.allItemWeight) <= kodPackage.weight)
-                    .max(Comparator.comparing(Item::getEarning));
-
-            if (maxItem.isPresent()) {
-                // 存在可以放入背包的物品
-                kodPackage.allItemWeight = preKodPackage.allItemWeight + maxItem.get().getWeight();
-                kodPackage.maxEarning = preKodPackage.maxEarning + maxItem.get().getEarning();
-                kodPackage.itemList.add(maxItem.get());
+            if (preMemoPackage.allItemWeight + currItem.getWeight() <= currMemoPackage.weight) {
+                // 直接把这个道具加入背包
+                currMemoPackage.allItemWeight = preMemoPackage.allItemWeight + currItem.getWeight();
+                currMemoPackage.maxEarning = preMemoPackage.maxEarning + currItem.getEarning();
+                memoPackage[currItemNum] = currMemoPackage;
             } else {
-                // 不存在可以放入背包的物品
-                kodPackage.allItemWeight = preKodPackage.allItemWeight;
-                kodPackage.maxEarning = preKodPackage.maxEarning;
-            }
+                // 把当前这个道具和背包里面的所有道具进行比较，选出最好的一，选择最优放法
+                int maxEarning = preMemoPackage.maxEarning;
+                int replaceItemIndex = -1;                   // 被替换的物品下标
+                for (int i = 0; i < preMemoPackage.itemList.size(); ++i) {
+                    Item itemInPackage = preMemoPackage.itemList.get(i);
 
-            loopPackage[loopPackageWeight] = kodPackage;
+                    // 得到替换之后的收益
+                    int earningAfterReplace = preMemoPackage.maxEarning + currItem.getEarning() - itemInPackage.getEarning();
+                    if (maxEarning < earningAfterReplace && (preMemoPackage.allItemWeight + currItem.getWeight() - currItem.getWeight()) <= packageWeight) {
+                        // 目前的最优方案
+                        maxEarning = earningAfterReplace;
+                        replaceItemIndex = i;
+                    }
+                }
+
+                // 得到最终的最优方案
+                if (replaceItemIndex != -1) {
+                    // 有物品被替换了
+                    currMemoPackage.itemList.set(replaceItemIndex, currItem);
+                    currMemoPackage.allItemWeight = preMemoPackage.allItemWeight + currItem.getWeight() - preMemoPackage.itemList.get(replaceItemIndex).getWeight();
+                } else {
+                    currMemoPackage.allItemWeight = preMemoPackage.allItemWeight;
+                }
+                currMemoPackage.maxEarning = maxEarning;
+                memoPackage[currItemNum] = currMemoPackage;
+            }
         }
 
-        packageItemList.addAll(loopPackage[packageWeight].itemList);
-        maxEarning = loopPackage[packageWeight].maxEarning;
+        result = memoPackage[itemList.size()];
     }
 
-    public List<Item> getUnmodifiedPackItemList() {
-        return unmodifiedPackItemList;
+    public MemoPackage getResult() {
+        return result;
     }
 
-    public int getMaxEarning() {
-        return maxEarning;
-    }
-
-    private static class KodPackage {
+    private static class MemoPackage {
         /**
          * 背包内所有物品的最大收益总和
          */
@@ -91,13 +93,13 @@ public class ZeroOnePackage {
          */
         private List<Item> itemList = new ArrayList<>();
 
-        private KodPackage(int maxEarning, int allItemWeight, int weight) {
+        private MemoPackage(int maxEarning, int allItemWeight, int weight) {
             this.maxEarning = maxEarning;
             this.allItemWeight = allItemWeight;
             this.weight = weight;
         }
 
-        private KodPackage(int weight) {
+        private MemoPackage(int weight) {
             this.weight = weight;
         }
     }
@@ -121,7 +123,7 @@ public class ZeroOnePackage {
         public Item(int weight, int earning) {
             this.weight = weight;
             this.earning = earning;
-            this.avgEarning = (ea)
+            this.avgEarning = ((float) earning) / weight;
         }
 
         public int getWeight() {
@@ -132,6 +134,10 @@ public class ZeroOnePackage {
             return earning;
         }
 
+        public float getAvgEarning() {
+            return avgEarning;
+        }
+
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;
@@ -140,13 +146,15 @@ public class ZeroOnePackage {
             Item item = (Item) o;
 
             if (getWeight() != item.getWeight()) return false;
-            return getEarning() == item.getEarning();
+            if (getEarning() != item.getEarning()) return false;
+            return Float.compare(item.getAvgEarning(), getAvgEarning()) == 0;
         }
 
         @Override
         public int hashCode() {
             int result = getWeight();
             result = 31 * result + getEarning();
+            result = 31 * result + (getAvgEarning() != +0.0f ? Float.floatToIntBits(getAvgEarning()) : 0);
             return result;
         }
 
@@ -155,6 +163,7 @@ public class ZeroOnePackage {
             return "Item{" +
                     "weight=" + weight +
                     ", earning=" + earning +
+                    ", avgEarning=" + avgEarning +
                     '}';
         }
     }
@@ -162,8 +171,7 @@ public class ZeroOnePackage {
     @Override
     public String toString() {
         return "ZeroOnePackage{" +
-                "unmodifiedPackItemList=" + unmodifiedPackItemList +
-                ", maxEarning=" + maxEarning +
+                "result=" + result +
                 '}';
     }
 
